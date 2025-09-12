@@ -1,0 +1,43 @@
+# docker compose file for running mysqldb, images backend, frontend (or used for running certbot if needed)
+# images backend, frontend must be first built (by docker-compose-build.yml) and pushed in docker hub
+# used by github actions (.github/workflows/main.yml)
+# uses config file .env
+
+# first of all, extern network "proxy-network" must be created (during init installation) - run command:
+# docker network create proxy-network
+# (proxy-network is used to connect proxy-nginx with frontend/backend)
+
+# IMPORTANT - after change, this file must be manually copied (by WinSCP) to /home/run-env-proxy-certbot/certbot
+# because github actions script main.yml only uses this file direct on production (no checkout and copy to production is executed)
+# (also config file .env must be manually copied (by WinSCP) to /home/run-env-proxy-certbot/certbot)
+
+# remark: volume ../certbot/www:/var/www/certbot/:ro is probably needed for generating/renew cert
+
+# prikazy na vygenerovanie ssl certifikatu:
+#  POZOR! - vygenerovanie certifikatu zafunguje len vtedy ak nie je zapnute https (reps. redirect na https) - generovanie cert funguje cez http,
+#  t.j. musel som z nginx konfiguraku proxy-nginx/conf/app.conf DOCASNE vymazat location s "return 301 https://car-demo.michalrakus.sk$request_uri;"
+#  a tiez som musel vymazat celu sekciu "server" pre https (zjavne mu vadilo ze este neexistuje ssl certifikat na ktory odkazoval)
+#  po vygenerovani certifikatu treba zmeny vratit naspet! a treba samozrejme restartovat proxy-nginx po zmene konfig suboru proxy-nginx/conf/app.conf
+# docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ -d app.depaul.sk
+
+# zobrazi certifikaty (a ich expiry date)
+# docker compose run --rm certbot certificates
+
+# prikaz na renew cert (zafunguje pre certfikaty vsetkych domen, ukaze datum kedy vyprsi cert):
+# upozronenie: po renew treba restartovat proxy-nginx (pozri a pouzi docker-compose.yml v proxy-nginx)
+# docker compose run --rm certbot renew
+
+# prikazy na zmazanie cert:
+# docker compose run --rm certbot revoke --cert-name car-demo.michalrakus.sk
+# docker compose run --rm certbot delete --cert-name car-demo.michalrakus.sk
+
+
+version: '3.8'
+name: proxy
+
+services:
+  certbot:
+    image: certbot/certbot:v2.6.0
+    volumes:
+      - ./www/:/var/www/certbot/:rw
+      - ./conf/:/etc/letsencrypt/:rw

@@ -1,0 +1,88 @@
+# docker compose file for running mysqldb, images backend, frontend (or used for running certbot if needed)
+# images backend, frontend must be first built (by docker-compose-build.yml) and pushed in docker hub
+# used by github actions (.github/workflows/main.yml)
+# uses config file .env
+
+# IMPORTANT - after change, this file must be manually copied (by WinSCP) on production to /home/projects/car-demo
+# because github actions script main.yml only uses this file direct on production (no checkout and copy to production is executed)
+# (also config file .env must be manually copied (by WinSCP) on production to /home/projects/depaul)
+
+# manual usage - example:
+# 1. connect to production using putty, go to the directory where this file is located (cd /home/projects/car-demo) and run for example:
+# docker compose -f docker-compose-run.yml down   -> stops application in docker on localhost
+# docker compose -f docker-compose-run.yml up -d  -> runs application in docker on localhost (builds also images if they are not present)
+
+
+version: '3.8'
+name: car-demo
+
+services:
+  postgresdb:
+    container_name: postgresdb
+    image: postgres:16.1
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_LOCAL_PORT}:${POSTGRES_DOCKER_PORT}
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    networks:
+      - db-network
+
+  backend:
+    container_name: car-demo-backend
+    depends_on:
+      - postgresdb
+    image: michalrakus/car-demo:backend-${IMAGE_VERSION}
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    ports:
+      - ${NODE_LOCAL_PORT}:${NODE_DOCKER_PORT}
+    environment:
+      - X_PROTOCOL=${X_PROTOCOL}
+      - X_DOMAIN=${X_DOMAIN}
+      - X_PORT=${NODE_DOCKER_PORT}
+      - X_AUTH=${X_AUTH}
+      - X_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
+      - X_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
+      - X_DATABASE_URL=${X_DATABASE_URL}
+      - X_STRING_DB_SEARCH_AI_CI=${X_STRING_DB_SEARCH_AI_CI}
+      - X_LOG_SQL=${X_LOG_SQL}
+      - TZ=${TZ}
+    volumes:
+      # /backend-app is WORKDIR in backend Dockerfile
+      - backend-file-volume:/backend-app/app-files
+      - ../../run-env-proxy-certbot/certbot/conf/:/etc/node/ssl/:ro
+    networks:
+      - db-network
+      - proxy-network-dc
+
+  frontend:
+    container_name: car-demo-frontend
+    depends_on:
+      - backend
+    # env variables are already in image (env variables are created during build - see docker-compose-build.yml)
+    image: michalrakus/car-demo:frontend-${IMAGE_VERSION}
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    ports:
+      - ${NGINX_LOCAL_PORT}:${NGINX_DOCKER_PORT}
+      - ${NGINX_LOCAL_PORT_HTTPS}:${NGINX_DOCKER_PORT_HTTPS}
+    volumes:
+      - ./car-demo-nginx/conf/:/etc/nginx/conf.d/:ro
+      - ../../run-env-proxy-certbot/certbot/conf/:/etc/nginx/ssl/:ro
+    networks:
+      - proxy-network-dc
+
+volumes:
+  db-volume:
+  backend-file-volume:
+
+networks:
+  db-network:
+  proxy-network-dc:
+    external: true
+    name: proxy-network

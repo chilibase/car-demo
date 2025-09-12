@@ -1,0 +1,47 @@
+# docker compose file for running mysqldb, images backend, frontend (or used for running certbot if needed)
+# images backend, frontend must be first built (by docker-compose-build.yml) and pushed in docker hub
+# used by github actions (.github/workflows/main.yml)
+# uses config file .env
+
+# first of all, extern network "proxy-network" must be created (during init installation) - run command:
+# docker network create proxy-network
+# (proxy-network is used to connect proxy-nginx with frontend/backend)
+
+# IMPORTANT - after change, this file must be manually copied (by WinSCP) to /home/run-env-proxy-certbot/proxy-nginx
+# because github actions script main.yml only uses this file direct on production (no checkout and copy to production is executed)
+# (also config file .env must be manually copied (by WinSCP) to /home/run-env-proxy-certbot/proxy-nginx)
+
+# remark: volume ../certbot/www:/var/www/certbot/:ro is probably needed for generating/renew cert
+
+# manual usage - example:
+# 1. connect to production using putty, go to the directory where this file is located (cd /home/run-env-proxy-certbot/proxy-nginx) and run for example:
+# docker compose down   -> stops application in docker on localhost
+# docker compose up -d  -> runs application in docker on localhost (builds also images if they are not present)
+
+
+version: '3.8'
+name: proxy-nginx
+
+services:
+  proxy:
+    container_name: proxy-nginx
+    build:
+      context: .
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    ports:
+      - ${NGINX_PROXY_LOCAL_PORT}:${NGINX_PROXY_DOCKER_PORT}
+      - ${NGINX_PROXY_LOCAL_PORT_HTTPS}:${NGINX_PROXY_DOCKER_PORT_HTTPS}
+    volumes:
+      - ./conf/:/etc/nginx/conf.d/:ro
+      - ../certbot/www:/var/www/certbot/:ro
+      - ../certbot/conf/:/etc/nginx/ssl/:ro
+    networks:
+      - proxy-network-dc
+
+#volumes:
+
+networks:
+  proxy-network-dc:
+    external: true
+    name: proxy-network

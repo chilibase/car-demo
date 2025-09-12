@@ -1,0 +1,94 @@
+# docker compose file for projects frontend, backend and for service mysqldb
+# for manual use mostly on localhost (for CI/CD is used docker-compose-build.yml and docker-compose-run.yml)
+# does not support ssl
+# uses config file .env
+
+# usage:
+# 1. change env values in config file .env for run on localhost (X_PROTOCOL=HTTP, VITE_BACKEND_URL=http://localhost/backend)
+# 2. open cmd, go to the directory where this file is located and run for example:
+# docker compose build frontend   -> builds image for frontend (usefull if for example the source code of frontend has changed)
+# docker compose build backend    -> builds image for backend
+# docker compose up -d            -> runs application in docker on localhost (builds also images if they are not present)
+# docker compose down             -> stops application (shuts down the containers)
+# docker compose restart frontend -> restarts frontend (usefull if some config file of frontend (e.g. nginx/conf/app.conf) has changed)
+
+# if application runs in docker on localhost, is available on url http://localhost (default port for http is 80 and on this port runs nginx (see nginx/conf/app.conf))
+
+version: '3.8'
+name: car-demo
+
+services:
+
+  postgresdb:
+    container_name: postgresdb
+    image: postgres:16.1
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_LOCAL_PORT}:${POSTGRES_DOCKER_PORT}
+    volumes:
+      - car-demo-db-volume:/var/lib/postgresql/data
+    networks:
+      - db-network
+
+  backend:
+    container_name: car-demo-backend
+    depends_on:
+      - postgresdb
+    build: ../../backend
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    ports:
+      - ${NODE_LOCAL_PORT}:${NODE_DOCKER_PORT}
+    environment:
+      - X_PROTOCOL=${X_PROTOCOL}
+      - X_DOMAIN=${X_DOMAIN}
+      - X_PORT=${NODE_DOCKER_PORT}
+      - X_AUTH=${X_AUTH}
+      - X_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
+      - X_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
+      - X_DATABASE_URL=${X_DATABASE_URL}
+      - X_STRING_DB_SEARCH_AI_CI=${X_STRING_DB_SEARCH_AI_CI}
+      - X_LOG_SQL=${X_LOG_SQL}
+      - TZ=${TZ}
+    volumes:
+      # /backend-app is WORKDIR in backend Dockerfile
+      - car-demo-backend-file-volume:/backend-app/app-files
+    networks:
+      - db-network
+      - backend-network
+
+  frontend:
+    container_name: car-demo-frontend
+    depends_on:
+      - backend
+    build:
+      context: ../../frontend
+      args:
+        # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
+        - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+        - VITE_AUTH=${X_AUTH}
+        - VITE_AUTH_OFF_USERNAME=${VITE_AUTH_OFF_USERNAME}
+        - VITE_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
+        - VITE_AUTH0_CLIENT_ID=${VITE_AUTH0_CLIENT_ID}
+        - VITE_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
+        #- BROWSER=none
+    restart: unless-stopped
+    #env_file: docker-compose.env
+    ports:
+      - ${NGINX_LOCAL_PORT}:${NGINX_DOCKER_PORT}
+    volumes:
+      - ./car-demo-nginx/conf-localhost/:/etc/nginx/conf.d/:ro
+    networks:
+      - backend-network
+
+volumes:
+  depaul-db-volume:
+  depaul-backend-file-volume:
+
+networks:
+  db-network:
+  backend-network:
