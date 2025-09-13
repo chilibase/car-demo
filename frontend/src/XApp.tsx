@@ -5,8 +5,6 @@ import {Utils} from "./Utils.tsx";
 import AppAuthOff from "./AppAuthOff.tsx";
 import {XMSEntraIDProvider} from "./XMSEntraIDProvider.tsx";
 
-import './App.css'; // bol povodne ako prve css
-
 export const XApp = ({children}: {children: React.ReactNode;}) => {
     let elem: React.ReactElement;
     if (Utils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.OFF) {

@@ -1,3 +1,8 @@
+:root {
+  --app-form-font-size: 1.20rem; /* labels of fields (in form/header), labels of tables/forms */
+  --table-form-label-font-size: 1.55rem; /* labels of tables/forms */
+}
+
 html {
   overflow-y: scroll; /* vertikalny scrollbar vzdy zobrazeny (aj ked neaktivny) - ked nemame scrollbar, tak panely v dropdown-och su posunute kusok dolava */
 }
@@ -8,7 +13,7 @@ html {
 body {
   width: fit-content;
   min-width: 100%;
-  margin: 0; /* prebijeme povodny margin 3.57rem (niekedy rusi vertikalny scrollbar) */
+  margin: 0; /* prebijeme povodny margin-bottom 3.57rem (niekedy rusi vertikalny scrollbar) */
   overflow-x: hidden; /* ak mame tabulku sirsiu ako je sirka stranky (caste na mobile), tak sa zapina horizontalny scrollbar na tabulke
   - ten ale (v Chrome, v Mozille nie) sposobuje ze napravo od tabulky vznika prazdny priestor (t.j. je mozne sa odscrollovat doprava kde nic nevidno),
   je mozne ze je to bug v Chrome, overflow-x: hidden sposobuje, ze sa neda scrollovat doprava na prazdny priestor,
@@ -31,7 +36,7 @@ body {
   /*align-items: center; - stlaca dvojicky label + input */
   /*justify-content: center; chceme mat formular hned pod menu */
   /*font-size: calc(10px + 2vmin);*/
-  font-size: 1.29rem; /* nechceme velke label-y */
+  font-size: var(--app-form-font-size); /* velkost labelov fieldov k klasickom ciernom formulari (povodne boli velke label-y) */
   min-height: calc(100vh - 10rem); /* ak neni ziaden obsah zobrazeny, tak panel menu mal strasne maly priestor, cisto 100vh (alebo napr. 500rem) zas zobrazi vertikalny scrollbar */
 }
 
@@ -409,6 +414,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   padding-bottom: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  font-size: var(--app-form-font-size); /* velkost labelov fieldov v dialogu */
 }
 
 /* root div pre XInputTextarea a XEditor, ak nastavime property labelOnTop=true */
@@ -438,7 +444,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 /* zvyraznenie labelu pre lazy datatable - podobne ako v x-form-header */
 .x-lazy-datatable-label {
   margin-right: 2rem;
-  font-size: 120%;
+  font-size: var(--table-form-label-font-size);
   color: deepskyblue;
 }
 
@@ -456,7 +462,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 
   /* zvyraznenie textu */
   margin: 0.75rem;
-  font-size: 120%;
+  font-size: var(--table-form-label-font-size);
   color: deepskyblue;
 }
 

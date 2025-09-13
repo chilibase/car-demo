@@ -1,10 +1,5 @@
-import ReactDOM from "react-dom/client";
-import * as serviceWorker from './serviceWorker';
-import {XUtils} from "@chilibase/frontend/XUtils";
-import {setLocale} from "./Locale";
-import {Utils} from "./Utils.tsx";
-import {XApp} from "./XApp.tsx";
-import {CarDemoRouterProvider} from "./CarDemoRouterProvider.tsx";
+// in order to preserve the order of css files in vite build we put css imports as first before importing react components
+// (otherwise is App.css before index.css in the build)
 
 // PrimeReact / PrimeFlex / PrimeIcons global styles
 import 'primereact/resources/themes/saga-blue/theme.css';
@@ -14,6 +9,16 @@ import 'primeflex/primeflex.css';
 
 // Your own global styles (if any)
 import './index.css';
+
+import './App.css';
+
+import ReactDOM from "react-dom/client";
+import * as serviceWorker from './serviceWorker';
+import {XUtils} from "@chilibase/frontend/XUtils";
+import {setLocale} from "./Locale";
+import {Utils} from "./Utils.tsx";
+import {XApp} from "./XApp.tsx";
+import {CarDemoRouterProvider} from "./CarDemoRouterProvider.tsx";
 
 XUtils.initLib(Utils.getEnvVarValue);
 
