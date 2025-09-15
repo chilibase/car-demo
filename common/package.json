@@ -8,8 +8,8 @@
     "./UtilsCommon.js": "./dist/UtilsCommon.js"
   },
   "scripts": {
-    "start": "tsc -b",
-    "start:dev": "tsc -b -w"
+    "build": "tsc -b",
+    "build:dev": "tsc -b -w"
   },
   "engines": {
     "node": ">=20"

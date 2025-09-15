@@ -8,10 +8,10 @@ WORKDIR /backend-app
 COPY . .
 RUN pnpm install
 # build dist in common
-RUN pnpm --prefix common tsc -b
+RUN pnpm --prefix common run build
 # run script "build" from project "backend"
 # build dist in backend
-RUN pnpm --prefix backend tsc -b
+RUN pnpm --prefix backend run build-tsc-b
 # removes devDependencies from node_modules (across all projects)
 RUN pnpm prune --prod
 
