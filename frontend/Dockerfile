@@ -6,9 +6,11 @@ RUN npm i -g pnpm
 FROM node-pnpm AS build-stage
 
 WORKDIR /frontend-app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
+# copy all from context (ussauly files checked out from repo; files/dirs in .dockerignore in context root are ignored) to workdir of build stage
 COPY . .
+# install packages on all projects of workspace (uses mainly pnpm-lock.yaml in root and package.json files in particular projects)
+# creates node_modules
+RUN pnpm install
 
 #ARG VITE_API_BASE_URL
 #ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
@@ -31,14 +33,14 @@ ENV VITE_AUTH0_CLIENT_ID=${VITE_AUTH0_CLIENT_ID}
 ARG VITE_AUTH0_AUDIENCE
 ENV VITE_AUTH0_AUDIENCE=${VITE_AUTH0_AUDIENCE}
 
-RUN pnpm run build
+# run script "build" from project "frontend"
+# creates dist
+RUN pnpm --prefix frontend build
 
 # Stage 2
 FROM nginx:1.23.4-alpine
 
-COPY --from=build-stage /frontend-app/build /usr/share/nginx/html
-# ak mame aplikaciu, netreba nam pridavat test-page.html takto separatne
-#COPY public/test-page.html /usr/share/nginx/html/
+COPY --from=build-stage /frontend-app/frontend/dist /usr/share/nginx/html
 
 # port na ktorom bezi nginx
 EXPOSE ${NGINX_DOCKER_PORT} ${NGINX_DOCKER_PORT_HTTPS}

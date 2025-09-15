@@ -9,14 +9,21 @@ services:
 
   backend:
     # ak mame build a image zaroven, tak image sluzi na pomenovanie vytvoreneho image (defaultne vytvara car-demo-backend:latest)
+    # context "../.." means, that docker sends into the build the whole repository (backend, common, frontend, run-env, ...)
+    # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
     image: michalrakus/car-demo:backend-${IMAGE_VERSION}
-    build: ../../backend
+    build:
+      context: ../..
+      dockerfile: backend/Dockerfile
 
   frontend:
     # ak mame build a image zaroven, tak image sluzi na pomenovanie vytvoreneho image (defaultne vytvara car-demo-frontend:latest)
+    # context "../.." means, that docker sends into the build the whole repository (backend, common, frontend, run-env, ...)
+    # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
     image: michalrakus/car-demo:frontend-${IMAGE_VERSION}
     build:
-      context: ../../frontend
+      context: ../..
+      dockerfile: frontend/Dockerfile
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
         - VITE_BACKEND_URL=${VITE_BACKEND_URL}

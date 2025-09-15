@@ -54,7 +54,7 @@ services:
       - TZ=${TZ}
     volumes:
       # /backend-app is WORKDIR in backend Dockerfile
-      - backend-file-volume:/backend-app/app-files
+      - backend-file-volume:/backend-app/backend/app-files
       - ../../run-env-proxy-certbot/certbot/conf/:/etc/node/ssl/:ro
     networks:
       - db-network
