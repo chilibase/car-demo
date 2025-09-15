@@ -12,8 +12,10 @@ RUN pnpm --prefix common run build
 # run script "build" from project "backend"
 # build dist in backend
 RUN pnpm --prefix backend run build-tsc-b
-# removes devDependencies from node_modules (across all projects)
-RUN pnpm prune --prod
+# removes devDependencies from node_modules (run from root (across all projects) does not work)
+#RUN pnpm prune --prod
+RUN pnpm prune --prod --filter ./common
+RUN pnpm prune --prod --filter ./backend
 
 FROM node-pnpm AS deploy
 
