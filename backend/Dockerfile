@@ -20,6 +20,7 @@ RUN pnpm --prefix backend run build-tsc-b
 FROM node-pnpm AS deploy
 
 WORKDIR /backend-app
+COPY --from=build /backend-app/node_modules ./node_modules
 COPY --from=build /backend-app/common/package.json ./common/package.json
 COPY --from=build /backend-app/common/node_modules ./common/node_modules
 COPY --from=build /backend-app/common/dist ./common/dist
