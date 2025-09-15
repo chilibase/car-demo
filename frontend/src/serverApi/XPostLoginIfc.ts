@@ -1,5 +1,5 @@
 // TODO - presunut do lib-ky
-import type {XUser} from "@chilibase/frontend/lib/serverApi/XUser";
+import type {XUser} from "@chilibase/frontend/XUser";
 
 // fieldy na sychronizaciu (zatial len username)
 export interface XPostLoginRequest {

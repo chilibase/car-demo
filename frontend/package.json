@@ -9,7 +9,6 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "linkLib": "pnpm link @michalrakus/x-react-web-lib",
     "buildAndPackLib": "pnpm --prefix ../../chilibase/frontend run buildAndPack",
     "installLib": "pnpm install ../../chilibase/frontend/chilibase-frontend-0.1.0.tgz",
     "bl": "pnpm run buildAndPackLib && pnpm run installLib",

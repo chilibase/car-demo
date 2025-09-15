@@ -1,7 +1,7 @@
 # Workflow build and deploy prod
 name: Build and deploy prod
 
-# workflow_dispatch umoznuje manualne spustanie cez button na github.com - dame zatial len manualne spustenie
+# workflow_dispatch enables manual run triggered from button on github.com (we use only manual run for now)
 #on: [push, workflow_dispatch]
 on: [workflow_dispatch]
 jobs:
@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
-      # nie je required ale je recommended
+      # this step is not required but recommended
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 

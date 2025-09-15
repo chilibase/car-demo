@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 // import './App.css'; - tu bol povodne
 import {XMenu} from "./XMenu";
 import {XUtilsMetadata} from "@chilibase/frontend/XUtilsMetadata";
 import {XLoginForm} from "@chilibase/frontend/XLoginForm";
-import useXToken from "@chilibase/frontend/lib/components/useXToken";
+import useXToken from "@chilibase/frontend/useXToken";
 
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
