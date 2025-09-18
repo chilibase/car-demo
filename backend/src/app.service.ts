@@ -15,7 +15,6 @@ export class AppService {
     }
 
     getHello(): string {
-        return 'car-demo-backend works 888!' + UtilsCommon.test();
-        //return 'car-demo-backend works 4!';
+        return 'car-demo-backend works 888! ' + UtilsCommon.test();
     }
 }

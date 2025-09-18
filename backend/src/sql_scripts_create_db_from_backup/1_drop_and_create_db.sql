@@ -1,10 +1,10 @@
--- script na dropnutie a vytvorenie DB (mozme spustit v DBeaver nad cudzou DB)
--- ak spustate vytvorenie DB prvykrat, zakomentujte "DROP DATABASE car_demo_db;"
--- (databazu mozte vytvorit aj priamo v toole)
+-- script to drop and create DB (can be run on another DB)
+-- (if DB does not exists yet, comment "DROP DATABASE car_demo_db;")
+-- (database can be created also direct in DB tool (e.g. DBeaver))
 
 DROP DATABASE car_demo_db;
 
--- spustene nad cudzou DB:
+-- (can be run on another DB):
 CREATE DATABASE "car_demo_db"
 WITH OWNER "postgres"
 ENCODING 'UTF8'

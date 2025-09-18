@@ -25,13 +25,13 @@ export class AppController {
         return this.appService.getHello();
     }
 
-    @Public()
+    //@Public()
     @Post('lazyDataTableFindRowsTest')
     async lazyDataTableFindRowsTest(@Body() body: FindParam): Promise<FindResult> {
         const findResult: FindResult = await this.xLazyDataTableService.findRows(body);
-        // test - typy atributov, ktore pouziva TypeORM pri nacitani objektu z DB
+        // test - types of attributes, those TypeORM uses by reading object from DB
         for (const row of findResult.rowList) {
-            //if (body.entity === "ZapisSocPorad") {
+            //if (body.entity === "<entity name>") {
                 for (const [key, value] of Object.entries(row)) {
                     console.log(`${key}: typeof = ${typeof value}, constructor name = ${value?.constructor?.name}, value = ${value}`);
                 }
@@ -40,7 +40,7 @@ export class AppController {
         return findResult;
     }
 
-    @Public()
+    //@Public()
     @Post('saveRowTest')
     saveRow(@Body() body: SaveRowParam): Promise<any> {
         return this.xLibService.saveRow(body);

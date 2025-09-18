@@ -15,7 +15,7 @@ export class PostSubscriber implements EntitySubscriberInterface {
     afterQuery(event: AfterQueryEvent<any>) {
         //console.log(`AFTER QUERY: `, event.query);
         if (XUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL)) {
-            // ak logujeme SQL, tak zalogujeme aj cas (pri vyvoji logujeme, pri produkcii nie)
+            // if log SQL is on then log also the time
             console.log(`executionTime: `, event.executionTime);
         }
     }

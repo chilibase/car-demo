@@ -31,19 +31,15 @@ import {ConnectionOptions, parse} from "pg-connection-string";
 const entities: EntityClassOrSchema[] = [XBrowseMeta, XColumnMeta, XFile, XUser, XEnumEnum, XEnum, XParam,
   Brand, Country, Car, Ride, Client, CarReservation
 ];
-// const entities: EntityClassOrSchema[] = [XUser,
-//   Brand, Country, Car, Ride, Client, CarReservation
-// ];
 
-// kedze metoda pouziva environment variables, musi byt zavolana az po inicializacii modulu ConfigModule
+// since this method uses environment variables, must be called after the initialization of module ConfigModule
 function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmModuleOptions {
 
-  // zatial pouzijeme tento parseDatabaseUrl (pridali sme dependeciu na ts-parse-database-url)
   const dbConfig: ConnectionOptions = parse(XUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL));
-  // TODO - schema from dbConfig
-  //const schema: string = dbConfig.options?.schema;
-  const schema: string = "car_demo";
-  //console.log(dbConfig);
+  const schema: string | undefined = dbConfig['schema'] as string;
+  if (!schema) {
+    throw `schema is missing in value of env var X_DATABASE_URL: ${XUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL)}`;
+  }
 
   const typeOrmModuleOptions: TypeOrmModuleOptions = {
     type: "postgres",
@@ -52,11 +48,11 @@ function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmMod
     username: dbConfig.user,
     password: dbConfig.password,
     database: dbConfig.database,
-    schema: schema, // 'schema' je atribut z X_DATABASE_URL
+    schema: schema,
     entities: entities,
     subscribers: [XOptimisticLockingSubscriber, PostSubscriber],
     synchronize: false,
-    // logging: true sme nahradili custom loggerom - rozumne loguje parameter typu Buffer
+    // logging: true was replaced with custom logger - the param of type Buffer is logged smart
     //logging: true,
     logger: new XAdvancedConsoleLogger(XUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
   };
@@ -66,36 +62,34 @@ function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmMod
 
 @Module({})
 export class AppModule {
-  // pouzivame metodku forRoot() + DynamicModule aby sme vedeli if-ovat pridavanie autorizacnych modulov
+  // we use the method forRoot() + DynamicModule in order to enable using if by adding authentification modules
   static forRoot(configModule: DynamicModule): DynamicModule {
 
     const appModuleMetadata: DynamicModule = {
       imports: [
         configModule,
-        // TypeOrmModule.forFeature(entities) je potrebny aby sme mohli injektovat Repository (vid carRepository v AppService)
-        // TypeOrmModule.forRoot(typeOrmModuleOptions), TypeOrmModule.forFeature(entities) mozme presunut aj do XLibModule, zatial ich nechame tu
-        TypeOrmModule.forRoot(createTypeOrmModuleOptions(entities)),
-        TypeOrmModule.forFeature(entities),
+        TypeOrmModule.forRoot(createTypeOrmModuleOptions(entities)), // can be moved to XLibModule?
+        TypeOrmModule.forFeature(entities), // is needed to enable inject TypeORM entity Repository
         XLibModule.forRoot(),
-        MulterModule.register(/*{dest: 'uploads/'}*/) // globalne nastavenie ako spracovavat subory, zatial nastavujeme na metodach controllera
+        MulterModule.register(/*{dest: 'uploads/'}*/) // global settings for processing files, for now we set this in the controller's methods
       ],
       controllers: [AppController],
       providers: [
         AppService
       ],
-      exports: [TypeOrmModule], // zevraj treba aby bola DB pristupna vo vsetkych moduloch, funguje vsak aj bez tohto
+      exports: [TypeOrmModule], // according to doc, is needed to access DB from all modules, but works also without this export
       module: AppModule
     };
-    // ak nemame vypnutu autorizaciu, pridame autorizacne moduly
+    // add authentification modules if the authentification is not off
     if (XUtils.getEnvVarValue(XEnvVar.X_AUTH) !== XAuth.OFF) {
       appModuleMetadata.imports.push(AuthModule);
       appModuleMetadata.providers.push(
           {
             provide: APP_GUARD,
             useClass: JwtAuthGuard
-            //useClass: MsEntraIdAuthGuard // docasne na testovanie
+            //useClass: MsEntraIdAuthGuard // temporary for testing
           }
-          //MsEntraIdStrategy // docasne na testovanie
+          //MsEntraIdStrategy // temporary for testing
       );
     }
     return appModuleMetadata;

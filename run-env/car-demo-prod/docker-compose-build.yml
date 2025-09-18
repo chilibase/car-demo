@@ -1,5 +1,5 @@
 # docker compose file for projects frontend, backend - used for building images
-# used by github actions (.github/workflows/main.yml)
+# used by github actions (.github/workflows/car-demo-prod.yml)
 # uses config file .env
 
 version: '3.8'
@@ -8,19 +8,19 @@ name: car-demo
 services:
 
   backend:
-    # ak mame build a image zaroven, tak image sluzi na pomenovanie vytvoreneho image (defaultne vytvara car-demo-backend:latest)
+    # if we use both args image and build, then image is the name of the built image (default name of image is car-demo-backend:latest)
     # context "../.." means, that docker sends into the build the whole repository (backend, common, frontend, run-env, ...)
     # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
-    image: michalrakus/car-demo:backend-${IMAGE_VERSION}
+    image: chilibase/car-demo:backend-1.0.0
     build:
       context: ../..
       dockerfile: backend/Dockerfile
 
   frontend:
-    # ak mame build a image zaroven, tak image sluzi na pomenovanie vytvoreneho image (defaultne vytvara car-demo-frontend:latest)
+    # if we use both args image and build, then image is the name of the built image (default name of image is car-demo-frontend:latest)
     # context "../.." means, that docker sends into the build the whole repository (backend, common, frontend, run-env, ...)
     # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
-    image: michalrakus/car-demo:frontend-${IMAGE_VERSION}
+    image: chilibase/car-demo:frontend-1.0.0
     build:
       context: ../..
       dockerfile: frontend/Dockerfile

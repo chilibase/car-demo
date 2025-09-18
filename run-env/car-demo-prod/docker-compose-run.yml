@@ -36,7 +36,7 @@ services:
     container_name: car-demo-backend
     depends_on:
       - postgresdb
-    image: michalrakus/car-demo:backend-${IMAGE_VERSION}
+    image: chilibase/car-demo:backend-1.0.0
     restart: unless-stopped
     #env_file: docker-compose.env
     ports:
@@ -65,7 +65,7 @@ services:
     depends_on:
       - backend
     # env variables are already in image (env variables are created during build - see docker-compose-build.yml)
-    image: michalrakus/car-demo:frontend-${IMAGE_VERSION}
+    image: chilibase/car-demo:frontend-1.0.0
     restart: unless-stopped
     #env_file: docker-compose.env
     ports:

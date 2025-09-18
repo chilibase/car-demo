@@ -1,5 +1,6 @@
 # docker compose file for projects frontend, backend and for service mysqldb
 # for manual use mostly on localhost (for CI/CD is used docker-compose-build.yml and docker-compose-run.yml)
+# TODO - not tested, may contains errors
 # does not support ssl
 # uses config file .env
 
@@ -38,7 +39,9 @@ services:
     container_name: car-demo-backend
     depends_on:
       - postgresdb
-    build: ../../backend
+    build:
+      context: ../..
+      dockerfile: backend/Dockerfile
     restart: unless-stopped
     #env_file: docker-compose.env
     ports:
@@ -56,7 +59,7 @@ services:
       - TZ=${TZ}
     volumes:
       # /backend-app is WORKDIR in backend Dockerfile
-      - car-demo-backend-file-volume:/backend-app/app-files
+      - car-demo-backend-file-volume:/backend-app/backend/app-files
     networks:
       - db-network
       - backend-network
@@ -66,7 +69,8 @@ services:
     depends_on:
       - backend
     build:
-      context: ../../frontend
+      context: ../..
+      dockerfile: frontend/Dockerfile
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
         - VITE_BACKEND_URL=${VITE_BACKEND_URL}
