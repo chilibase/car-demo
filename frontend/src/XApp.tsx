@@ -2,23 +2,17 @@ import React from "react";
 import {XAuth0Provider} from "./XAuth0Provider.tsx";
 import {XEnvVar, XViteAuth} from "@chilibase/frontend/XEnvVars";
 import {Utils} from "./Utils.tsx";
-import AppAuthOff from "./AppAuthOff.tsx";
 import {XMSEntraIDProvider} from "./XMSEntraIDProvider.tsx";
+import {XAuthOffProvider} from "./XAuthOffProvider.tsx";
 
 export const XApp = ({children}: {children: React.ReactNode;}) => {
     let elem: React.ReactElement;
     if (Utils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.OFF) {
-        elem =
-            <React.StrictMode>
-                <AppAuthOff />
-            </React.StrictMode>;
+        elem = <XAuthOffProvider>{children}</XAuthOffProvider>;
     }
     else if (Utils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL) {
-        /* username/password authentication
-        elem =
-            <React.StrictMode>
-                <AppLocal />
-            </React.StrictMode>;
+        /* TODO - username/password authentication
+        elem = <XAuthLocalProvider>{children}</XAuthLocalProvider>;
          */
         throw `XApp: Authentication not implemented for VITE_AUTH = ${Utils.getEnvVarValue(XEnvVar.VITE_AUTH)}`;
     }

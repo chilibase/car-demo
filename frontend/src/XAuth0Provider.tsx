@@ -6,7 +6,6 @@ import type {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
 import {Utils, XUserNotFoundOrDisabledError} from "./Utils";
 import {XEnvVar} from "@chilibase/frontend/XEnvVars";
 
-// TODO - move to lib
 export const XAuth0Provider = ({children}: {children: React.ReactNode;}) => {
     // na fungovanie klienta stacili domain, clientId, redirectUri - tak som nechal len tie
     // a este som sem pridal audience (id-cko backend-u) aby pri prihlasovani pytal suhlas na scope "profile"
@@ -30,7 +29,6 @@ export const XAuth0Provider = ({children}: {children: React.ReactNode;}) => {
     );
 }
 
-// TODO - v buducnosti presunut do XReactWebLib
 function AppAuth0({children}: {children: React.ReactNode;}) {
 
 
@@ -117,15 +115,11 @@ function AppAuth0({children}: {children: React.ReactNode;}) {
             xUser: xPostLoginResponse.xUser,
             logout: () => logout({logoutParams: {returnTo: window.location.origin}})
         });
-
-        console.log("App - bol uspesne zavolany setXTokenAndDoPostLogin");
     }
 
     const fetchAndSetXMetadata = async () => {
         await XUtilsMetadata.fetchAndSetXEntityMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXEntityMap()");
         await XUtilsMetadata.fetchAndSetXBrowseMetaMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXBrowseMetaMap()");
     }
 
     // tato funkcia sa vola pred kazdym requestom na backend - vola sa v metode XUtils.fetchBasic
@@ -165,5 +159,3 @@ function AppAuth0({children}: {children: React.ReactNode;}) {
 
     return elem;
 }
-
-export default AppAuth0;

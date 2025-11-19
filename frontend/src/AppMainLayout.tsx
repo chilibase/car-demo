@@ -2,7 +2,7 @@ import {XUtils} from "@chilibase/frontend/XUtils";
 import {Outlet} from "react-router";
 import {MenuItem, XMenubar, XMenuItem} from "@chilibase/frontend/app-layout";
 
-export const CarDemoMainLayout = () => {
+export const AppMainLayout = () => {
 
     // const navigate = useNavigate();
     //

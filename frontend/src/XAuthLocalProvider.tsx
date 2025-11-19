@@ -1,19 +1,20 @@
-import {useState} from 'react';
-// import './App.css'; - tu bol povodne
-import {XMenu} from "./XMenu";
+import React, {useState} from 'react';
 import {XUtilsMetadata} from "@chilibase/frontend/XUtilsMetadata";
 import {XLoginForm} from "@chilibase/frontend/XLoginForm";
 import useXToken from "@chilibase/frontend/useXToken";
 
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
+// TODO - does not work (very old code) - implement creating bearer token, use nestjs modul to process bearer token on backend
+// - add logout
 
-import './App.css'; // bol povodne ako prve css
+export const XAuthLocalProvider = ({children}: {children: React.ReactNode;}) => {
+    return (
+        <AppAuthLocal>
+            {children}
+        </AppAuthLocal>
+    );
+}
 
-// TODO - v buducnosti presunut do XReactWebLib
-function AppLocal() {
+function AppAuthLocal({children}: {children: React.ReactNode;}) {
 
     const [xToken, setXToken] = useXToken();
 
@@ -25,11 +26,14 @@ function AppLocal() {
 
     const fetchAndSetXMetadata = async () => {
         await XUtilsMetadata.fetchAndSetXEntityMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXEntityMap()");
         await XUtilsMetadata.fetchAndSetXBrowseMetaMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXBrowseMetaMap()");
         setInitialized(true);
     }
+
+    // const logout = () => {
+    //     XUtils.setXToken(null);
+    //     setInitialized(false);
+    // }
 
     let elem;
     if (xToken === null) {
@@ -41,15 +45,9 @@ function AppLocal() {
             fetchAndSetXMetadata();
         }
         else {
-            elem = <XMenu defaultFormElement={null} logout={() => {setXToken(null);}}/>;
+            elem = children;
         }
     }
 
-    return (
-        <div className="App">
-            {elem}
-        </div>
-    );
+    return elem;
 }
-
-export default AppLocal;

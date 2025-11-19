@@ -1,24 +1,20 @@
-
-import {useState} from 'react';
-// import './App.css'; - tu bol povodne
-import {XMenu} from "./XMenu";
+import React, {useState} from 'react';
 import {XUtilsMetadata} from "@chilibase/frontend/XUtilsMetadata";
 import {XUtils} from "@chilibase/frontend/XUtils";
-
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
-
-import './App.css'; // bol povodne ako prve css
 import type {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
 import {Utils, XUserNotFoundOrDisabledError} from "./Utils";
 import {Button} from "primereact/button";
 import {XEnvVar} from "@chilibase/frontend/XEnvVars";
 
+export const XAuthOffProvider = ({children}: {children: React.ReactNode;}) => {
+    return (
+        <AppAuthOff>
+            {children}
+        </AppAuthOff>
+    );
+}
 
-// TODO - v buducnosti presunut do XReactWebLib
-function AppAuthOff() {
+function AppAuthOff({children}: {children: React.ReactNode;}) {
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [initialized, setInitialized] = useState(false);
@@ -90,21 +86,16 @@ function AppAuthOff() {
 
         // ulozime si usera do access token-u - zatial take provizorne, user sa pouziva v preSave na setnutie vytvoril_id
         // TODO - tu provizorne accessToken: 'dummy', bolo accessToken: undefined
-        XUtils.setXToken({accessToken: 'dummy', xUser: xPostLoginResponse.xUser});
+        XUtils.setXToken({accessToken: 'dummy', xUser: xPostLoginResponse.xUser, logout: logout});
         setLoggedIn(true);
-
-        console.log("App - bol uspesne zavolany getAndSetAccessToken");
     }
 
     const fetchAndSetXMetadata = async () => {
         await XUtilsMetadata.fetchAndSetXEntityMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXEntityMap()");
         await XUtilsMetadata.fetchAndSetXBrowseMetaMap();
-        console.log("App - bol zavolany XUtilsMetadata.fetchAndSetXBrowseMetaMap()");
     }
 
     const logout = () => {
-        console.log("zavolany logout");
         XUtils.setXToken(null);
         setLoggedIn(false);
         setInitialized(false);
@@ -118,15 +109,9 @@ function AppAuthOff() {
         if (!initialized) {
             elem = <div className="App-form">App is being initialized...</div>;
         } else {
-            elem = <XMenu defaultFormElement={null} logout={logout}/>;
+            elem = children;
         }
     }
 
-    return (
-        <div className="App">
-            {elem}
-        </div>
-    );
+    return elem;
 }
-
-export default AppAuthOff;
