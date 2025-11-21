@@ -38,7 +38,7 @@ RUN pnpm run build
 # Stage 2
 FROM nginx:1.23.4-alpine
 
-COPY --from=build-stage /frontend-app/frontend/dist /usr/share/nginx/html
+COPY --from=build-stage /frontend-app/dist /usr/share/nginx/html
 # ak mame aplikaciu, netreba nam pridavat test-page.html takto separatne
 #COPY public/test-page.html /usr/share/nginx/html/
 
