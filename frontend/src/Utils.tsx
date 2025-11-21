@@ -1,8 +1,5 @@
 import type {XEnvVar} from "@chilibase/frontend/XEnvVars";
 
-export class XUserNotFoundOrDisabledError extends Error {
-}
-
 export class Utils {
     // docasne kym neporiesime zmenu citania env var
     static getEnvVarValue(envVarEnum: XEnvVar): string {

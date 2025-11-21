@@ -13,7 +13,7 @@ services:
     # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
     image: chilibase/car-demo:backend-1.0.0
     build:
-      context: ../..
+      context: ../../backend
       dockerfile: backend/Dockerfile
 
   frontend:
@@ -22,7 +22,7 @@ services:
     # and in Dockerfile we work with this whole context (we need to run install on whole pnpm workspace)
     image: chilibase/car-demo:frontend-1.0.0
     build:
-      context: ../..
+      context: ../../frontend
       dockerfile: frontend/Dockerfile
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))

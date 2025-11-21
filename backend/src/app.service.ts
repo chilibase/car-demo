@@ -2,7 +2,7 @@ import {Injectable} from '@nestjs/common';
 import {DataSource} from "typeorm";
 import {XLibService} from "@chilibase/backend/x-lib.service";
 import {XEntityMetadataService, XFileService} from "@chilibase/backend/services";
-import {UtilsCommon} from "common/UtilsCommon.js";
+import {UtilsCommon} from "./common/UtilsCommon.js";
 
 @Injectable()
 export class AppService {

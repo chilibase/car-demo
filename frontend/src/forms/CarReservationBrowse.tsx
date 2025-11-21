@@ -8,7 +8,7 @@ import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {CarReservationForm} from "./CarReservationForm";
 import {ClientForm} from "./ClientForm";
 import type {CarReservation} from "../model/car-reservation.entity.ts";
-import {UtilsCommon} from "common/UtilsCommon.ts";
+import {UtilsCommon} from "../common/UtilsCommon.ts";
 
 export const CarReservationBrowse = (props: XSearchBrowseProps) => {
 

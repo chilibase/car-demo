@@ -16,8 +16,8 @@ import ReactDOM from "react-dom/client";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {setLocale} from "./Locale";
 import {Utils} from "./Utils.tsx";
-import {XApp} from "./XApp.tsx";
 import {AppRouterProvider} from "./AppRouterProvider.tsx";
+import {XApp} from "@chilibase/frontend/auth";
 
 XUtils.initLib(Utils.getEnvVarValue);
 

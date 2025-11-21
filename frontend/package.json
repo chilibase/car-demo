@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "buildAndPackLib": "pnpm --prefix ../../chilibase/frontend run buildAndPack",
-    "installLib": "pnpm install ../../chilibase/frontend/chilibase-frontend-0.1.0.tgz",
+    "installLib": "pnpm install ../../chilibase/frontend/chilibase-frontend-0.1.1.tgz",
     "bl": "pnpm run buildAndPackLib && pnpm run installLib",
     "sl": "pnpm run bl && pnpm run dev",
     "preinstall": "npx only-allow pnpm"
@@ -19,10 +19,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^2.3.0",
-    "@azure/msal-browser": "^4.11.0",
-    "@azure/msal-react": "^3.0.10",
-    "@chilibase/frontend": "0.1.0",
+    "@chilibase/frontend": "0.1.1",
     "axios": "^1.8.4",
     "lodash": "^4.17.21",
     "primeflex": "^3.3.1",
@@ -47,7 +44,6 @@
     "globals": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.43.0",
-    "vite": "^6.3.5",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite": "^6.3.5"
   }
 }
