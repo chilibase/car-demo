@@ -14,7 +14,7 @@ services:
     image: chilibase/car-demo:backend-1.0.0
     build:
       context: ../../backend
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
 
   frontend:
     # if we use both args image and build, then image is the name of the built image (default name of image is car-demo-frontend:latest)
@@ -23,7 +23,7 @@ services:
     image: chilibase/car-demo:frontend-1.0.0
     build:
       context: ../../frontend
-      dockerfile: frontend/Dockerfile
+      dockerfile: Dockerfile
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
         - VITE_BACKEND_URL=${VITE_BACKEND_URL}
