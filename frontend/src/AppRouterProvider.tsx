@@ -13,6 +13,7 @@ export const AppRouterProvider = () => {
             Component: AppMainLayout,
             children: [
                 {path: "/", element: <div/>},
+                // >> add project specific items here <<
                 {path: "/brands", Component: BrandBrowse},
                 {path: "/cars", Component: CarBrowse},
                 {path: "/clients", Component: ClientBrowse},

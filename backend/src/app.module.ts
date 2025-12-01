@@ -29,6 +29,7 @@ import {Client} from "./model/client.entity.js";
 import {ConnectionOptions, parse} from "pg-connection-string";
 
 const entities: EntityClassOrSchema[] = [XBrowseMeta, XColumnMeta, XFile, XUser, XEnumEnum, XEnum, XParam,
+  // >> add project specific entities here <<
   Brand, Country, Car, Ride, Client, CarReservation
 ];
 

@@ -1,6 +1,6 @@
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {Outlet} from "react-router";
-import {MenuItem, XMenubar, XMenuItem} from "@chilibase/frontend/app-layout";
+import {MenuItem, XMenubar} from "@chilibase/frontend/app-layout";
 
 export const AppMainLayout = () => {
 
@@ -17,7 +17,8 @@ export const AppMainLayout = () => {
         {
             label:'Application',
             items:[
-                {template: <XMenuItem label='Brands' to='/brands'/>},
+                // >> add project specific menu items here <<
+                {template: <MenuItem label='Brands' to='/brands'/>},
                 {template: <MenuItem label='Cars' to='/cars'/>},
                 {template: <MenuItem label='Clients' to='/clients'/>},
                 {template: <MenuItem label='Car reservations' to='/car-reservations'/>}

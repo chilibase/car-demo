@@ -16,6 +16,8 @@
     "save": "Uložiť",
     "cancel": "Zrušiť",
     "formRemoveRowConfirm": "Chcete naozaj vymazať záznam?",
+    "xIsNotNull": "Vyplnené",
+    "xIsNull": "Nevyplnené",
     "xAutoComplete": "Automatické dopĺňanie",
     "expRowCount": "Počet záznamov",
     "expExportType": "Typ exportu",
