@@ -16,8 +16,7 @@ async function bootstrap() {
 
   const protocol: string = XUtils.getEnvVarValue(XEnvVar.X_PROTOCOL);
   let options: NestApplicationOptions | undefined = undefined;
-  // pri volaniach na backend pouzivame ten isty ssl certifikat ako pri volani na frontend (pociatocne stiahnutie aplikacie)
-  // (spolocny certifikat pre frontend i backend mame koli jednoduchosti, musia vsak mat tu istu domenu (car-demo.michalrakus.sk) aby to fungovalo (certifikat sa viaze na domenu))
+  // for backend requests we use the same ssl certificate like for frontend request (first GET request)
   if (protocol === XProtocol.HTTPS) {
     const domain: string = XUtils.getEnvVarValue(XEnvVar.X_DOMAIN);
     const httpsOptions: HttpsOptions = {
@@ -33,7 +32,7 @@ async function bootstrap() {
   // -> no need to add header for cross origin, both calls have the same origin "https://car-demo.michalrakus.sk" (http/https, domain, port)
 
   // for localhost:
-  // frontend app request goes to url http://localhost:5173/ ak sme ale na localhost-e, tak volania na backend nejdu cez nginx (ak nepustame aplikaciu cez docker), idu priamo na localhost:8081
+  // frontend app request goes to url http://localhost:5173/
   // ajax requests go to url http://localhost:8081/, so the url is different from the origin url (ports are different)
   // -> different url must be allowed by adding header ‘Access-Control-Allow-Origin’ into http response of the frontend app request,
   // otherwise this error occurs: CORS header ‘Access-Control-Allow-Origin’ missing

@@ -12,9 +12,11 @@ import {UtilsCommon} from "../common/UtilsCommon.ts";
 
 export const CarReservationBrowse = (props: XSearchBrowseProps) => {
 
-    const onUpravit = (selectedRow: CarReservation) => {
+    const onAlert = (selectedRow: CarReservation) => {
         const id = selectedRow.id;
         console.log(id);
+        alert(`Selected row id = ${id}`);
+
         UtilsCommon.test();
     }
 
@@ -23,9 +25,9 @@ export const CarReservationBrowse = (props: XSearchBrowseProps) => {
             <XLazyDataTable entity="CarReservation" label="Car reservations" rows={30} formFooterHeight={'4.43rem'}
                             editFormElement={<CarReservationForm/>} removeRow={true}
                             appButtonsForRow={[{
-                                key: "uprava",
-                                label: "Upraviť",
-                                onClick: onUpravit
+                                key: "alert",
+                                label: "Alert",
+                                onClick: onAlert
                             }]}
                             searchBrowseParams={props.searchBrowseParams}>
                 <XLazyColumn field="id" header="ID" width="5rem"/>

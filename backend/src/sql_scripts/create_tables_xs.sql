@@ -13,6 +13,7 @@ CREATE TABLE xs_group_by_field (
     x_enum_enum_id INT, -- pouzivany (a povinny) ak fieldType = xEnum
     xs_interval_set_id INT, -- pouzivany (a povinny) ak fieldType = age, intervalSet
     filter VARCHAR, -- pouzivany (zatial) ak fieldType = xEnum/entityEnum
+    sort_field VARCHAR, -- pouzivany (zatial) ak fieldType = xEnum/entityEnum
 
     modif_date TIMESTAMP,
     modif_x_user_id INT,
