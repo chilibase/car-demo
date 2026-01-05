@@ -17,7 +17,7 @@ import {XUtils} from "@chilibase/frontend/XUtils";
 import {setLocale} from "./Locale";
 import {Utils} from "./Utils.tsx";
 import {AppRouterProvider} from "./AppRouterProvider.tsx";
-import {XApp} from "@chilibase/frontend/auth";
+import {App} from "@chilibase/frontend/auth";
 
 XUtils.initLib(Utils.getEnvVarValue);
 
@@ -26,7 +26,7 @@ setLocale();
 const container = document.getElementById("root");
 if (container !== null) {
     const root = ReactDOM.createRoot(container);
-    root.render(<XApp><AppRouterProvider/></XApp>);
+    root.render(<App><AppRouterProvider/></App>);
 }
 else {
     console.log('element with id="root" not found');

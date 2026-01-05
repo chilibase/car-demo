@@ -1,8 +1,8 @@
 import {
-    XLazyColumn,
-    XLazyDataTable,
-    type XSearchBrowseProps
-} from "@chilibase/frontend/XLazyDataTable";
+    LazyColumn,
+    LazyDataTable,
+    type SearchBrowseProps
+} from "@chilibase/frontend/lazy-data-table";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm.tsx";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {CarReservationForm} from "./CarReservationForm";
@@ -10,7 +10,7 @@ import {ClientForm} from "./ClientForm";
 import type {CarReservation} from "../model/car-reservation.entity.ts";
 import {UtilsCommon} from "../common/UtilsCommon.ts";
 
-export const CarReservationBrowse = (props: XSearchBrowseProps) => {
+export const CarReservationBrowse = (props: SearchBrowseProps) => {
 
     const onAlert = (selectedRow: CarReservation) => {
         const id = selectedRow.id;
@@ -22,28 +22,28 @@ export const CarReservationBrowse = (props: XSearchBrowseProps) => {
 
     return (
         <div>
-            <XLazyDataTable entity="CarReservation" label="Car reservations" rows={30} formFooterHeight={'4.43rem'}
-                            editFormElement={<CarReservationForm/>} removeRow={true}
-                            appButtonsForRow={[{
-                                key: "alert",
-                                label: "Alert",
-                                onClick: onAlert
-                            }]}
-                            searchBrowseParams={props.searchBrowseParams}>
-                <XLazyColumn field="id" header="ID" width="5rem"/>
-                <XLazyColumn field="client.name" header="Client" width="15rem"
-                             autoFilter={true}
-                             autoComplete={{
-                                 assocField: "client", field: "name", ValueForm: ClientForm,
-                                 lazyLoadMaxRows: 15, scrollHeight: "25rem"
-                             }}/>
-                <XLazyColumn field="dateFrom" header="Date from"/>
-                <XLazyColumn field="dateTo" header="Date to"/>
-                <XLazyColumn field="car.id" header="Car ID" width="5rem"/>
-                <XLazyColumn field="car.brandAssoc.brand" header="Car brand" width="10rem"/>
-                <XLazyColumn field="car.color" header="Car color" width="10rem"/>
-                <XLazyColumn field="price" header="Price"/>
-            </XLazyDataTable>
+            <LazyDataTable entity="CarReservation" label="Car reservations" rows={30} formFooterHeight={'4.43rem'} sortField="id desc"
+                           editFormElement={<CarReservationForm/>} removeRow={true}
+                           appButtonsForRow={[{
+                               key: "alert",
+                               label: "Alert",
+                               onClick: onAlert
+                           }]}
+                           searchBrowseParams={props.searchBrowseParams}>
+                <LazyColumn field="id" header="ID" width="5rem"/>
+                <LazyColumn field="client.name" header="Client" width="15rem"
+                            autoFilter={true}
+                            autoComplete={{
+                                assocField: "client", field: "name", ValueForm: ClientForm,
+                                lazyLoadMaxRows: 15, scrollHeight: "25rem"
+                            }}/>
+                <LazyColumn field="dateFrom" header="Date from"/>
+                <LazyColumn field="dateTo" header="Date to"/>
+                <LazyColumn field="car.id" header="Car ID" width="5rem"/>
+                <LazyColumn field="car.brandAssoc.brand" header="Car brand" width="10rem"/>
+                <LazyColumn field="car.color" header="Car color" width="10rem"/>
+                <LazyColumn field="price" header="Price"/>
+            </LazyDataTable>
             <SourceCodeLinkForm sourceCodeFile="CarReservationBrowse.tsx"/>
             <SourceCodeLinkEntity sourceCodeFile="car-reservation.entity.ts"/>
         </div>

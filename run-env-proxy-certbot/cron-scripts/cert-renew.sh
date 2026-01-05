@@ -21,7 +21,7 @@ docker compose up -d
 cd /home/run-env/car-demo-prod
 docker compose -f docker-compose-run.yml down backend frontend
 docker compose -f docker-compose-run.yml up -d backend frontend
-# restartneme (pre istotu) backend a frontend - obidva pouzivaju certifikat - projekt car-demo-test
-#cd /home/run-env/car-demo-test
-#docker compose -f docker-compose-run.yml down backend-test frontend-test
-#docker compose -f docker-compose-run.yml up -d backend-test frontend-test
+# restartneme (pre istotu) backend a frontend - obidva pouzivaju certifikat - projekt d.....-...-prod
+cd /home/run-env/d.....-...-prod
+docker compose -f docker-compose-run.yml down backend-d.....-... frontend-d.....-...
+docker compose -f docker-compose-run.yml up -d backend-d.....-... frontend-d.....-...
