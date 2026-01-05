@@ -1,4 +1,4 @@
-import {XInputText} from "@chilibase/frontend/XInputText";
+import {InputText} from "@chilibase/frontend/input-text";
 import type {XFormProps} from "@chilibase/frontend/XFormBase";
 import {XDropdown} from "@chilibase/frontend/XDropdown";
 import {XToOneAssocButton} from "@chilibase/frontend/XToOneAssocButton";
@@ -15,9 +15,9 @@ import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {XCheckbox} from "@chilibase/frontend/XCheckbox";
 import type {XErrors} from "@chilibase/frontend/XErrors";
-import {XAutoComplete} from "@chilibase/frontend/XAutoComplete";
+import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
-import {XInputTextarea} from "@chilibase/frontend/XInputTextarea";
+import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
 import type {XObject} from "@chilibase/frontend/XObject";
@@ -49,14 +49,14 @@ export class CarForm extends XFormBaseModif {
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <div className="x-form-inline-row">
-                            <XInputText form={this} field="vin" label="Vin"/>
+                            <InputText form={this} field="vin" label="Vin"/>
                             <XCheckbox form={this} field="carBoolean" label="Car boolean" inline={true}/>
                         </div>
-                        <XInputText form={this} field="brandString" label="Brand string"/>
-                        <XInputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
+                        <InputText form={this} field="brandString" label="Brand string"/>
+                        <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                     </div>
                     <div className="x-form-col">
-                        <XInputText form={this} field="color" label="Color"/>
+                        <InputText form={this} field="color" label="Color"/>
                         <div className="x-form-inline-row">
                             <XInputDecimal form={this} field="year" label="Year"/>
                             <XInputDecimal form={this} field="price" label="Price" inline={true}/>
@@ -65,13 +65,13 @@ export class CarForm extends XFormBaseModif {
                         <XInputDate form={this} field="carDatetime" label="Car datetime"/>
                         <div className="x-form-inline-row">
                             <XInputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
-                            <XInputText form={this} field="modifXUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
+                            <InputText form={this} field="modifXUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
                         </div>
                     </div>
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
                         <XDropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
-                        <XAutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
+                        <AutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                         <XToOneAssocButton form={this} assocField="brandAssoc" assocForm={<BrandForm/>} label="Brand assoc AssocButton" buttonLabel="Brand form"/>
                     </div>
                 </div>

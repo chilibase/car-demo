@@ -1,4 +1,4 @@
-import {XInputText} from "@chilibase/frontend/XInputText";
+import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
@@ -7,9 +7,9 @@ import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
 import type {XObject} from "@chilibase/frontend/XObject";
-import {XInputTextarea} from "@chilibase/frontend/XInputTextarea";
+import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import {XInputDate} from "@chilibase/frontend/XInputDate";
-import {XAutoComplete} from "@chilibase/frontend/XAutoComplete";
+import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {ClientBrowse} from "./ClientBrowse";
 import {ClientForm} from "./ClientForm";
 import {CarBrowse} from "./CarBrowse";
@@ -22,7 +22,7 @@ export class CarReservationForm extends XFormBaseModif {
     constructor(props: XFormProps) {
         super(props, "CarReservation");
 
-        // row Brand (used in XAutoComplete for Car) is not joined automatically
+        // row Brand (used in AutoComplete for Car) is not joined automatically
         //this.addField("car.brandAssoc.brand");
     }
 
@@ -37,21 +37,21 @@ export class CarReservationForm extends XFormBaseModif {
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <XAutoComplete form={this} assocField="client" label="Client" width="30rem"
+                        <AutoComplete form={this} assocField="client" label="Client" width="30rem"
                                        displayField={["name", "birthDate", "address"]} sortField="name" scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={ClientBrowse} AssocForm={ClientForm}
                         />
                         <XInputDate form={this} field="dateFrom" label="Date from"/>
                         <XInputDate form={this} field="dateTo" label="Date to"/>
-                        <XAutoComplete form={this} assocField="car" label="Car"
+                        <AutoComplete form={this} assocField="car" label="Car"
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
                         <XInputDecimal form={this} field="price" label="Price"/>
-                        <XInputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
+                        <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
-                        <XInputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
+                        <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
                 <XFormFooter form={this}/>

@@ -1,4 +1,4 @@
-import {XInputText} from "@chilibase/frontend/XInputText";
+import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
@@ -27,12 +27,12 @@ export class ClientForm extends XFormBaseModif {
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <XInputText form={this} field="name" label="Name"/>
+                        <InputText form={this} field="name" label="Name"/>
                         <XInputDate form={this} field="birthDate" label="Birth date"/>
-                        <XInputText form={this} field="contact" label="Contact"/>
-                        <XInputText form={this} field="address" label="Address" inputStyle={{width:'25rem'}}/>
+                        <InputText form={this} field="contact" label="Contact"/>
+                        <InputText form={this} field="address" label="Address" inputStyle={{width:'25rem'}}/>
                         <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
-                        <XInputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
+                        <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
                 <XFormFooter form={this}/>

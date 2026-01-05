@@ -1,4 +1,4 @@
-import {XInputText} from "@chilibase/frontend/XInputText";
+import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XFormBase, type XFormProps} from "@chilibase/frontend/XFormBase";
@@ -20,7 +20,7 @@ export class BrandForm extends XFormBase {
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <XInputText form={this} field="brand" label="Brand"/>
+                        <InputText form={this} field="brand" label="Brand"/>
                     </div>
                 </div>
                 <XFormFooter form={this}/>
