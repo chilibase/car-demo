@@ -13,7 +13,7 @@ import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XUtils} from "@chilibase/frontend/XUtils";
-import {XCheckbox} from "@chilibase/frontend/XCheckbox";
+import {Checkbox} from "@chilibase/frontend/checkbox";
 import type {XErrors} from "@chilibase/frontend/XErrors";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
@@ -50,7 +50,7 @@ export class CarForm extends XFormBaseModif {
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <div className="x-form-inline-row">
                             <InputText form={this} field="vin" label="Vin"/>
-                            <XCheckbox form={this} field="carBoolean" label="Car boolean" inline={true}/>
+                            <Checkbox form={this} field="carBoolean" label="Car boolean" inline={true}/>
                         </div>
                         <InputText form={this} field="brandString" label="Brand string"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>

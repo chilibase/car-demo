@@ -4,7 +4,7 @@ import { XFormHeader } from "@chilibase/frontend/XFormHeader";
 import type { XUser } from "@chilibase/frontend/XUser";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
-import { XCheckbox } from "@chilibase/frontend/XCheckbox";
+import {Checkbox} from "@chilibase/frontend/checkbox";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 
@@ -29,8 +29,8 @@ export class XUserCarDemoForm extends XFormBaseModif {
                         <InputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="username" label="Username" size={30} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="name" label="Name" size={30} labelStyle={{width:'14rem'}}/>
-                        <XCheckbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
-                        <XCheckbox form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
+                        <Checkbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
+                        <Checkbox form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="modifXUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
                     </div>
