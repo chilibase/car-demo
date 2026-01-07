@@ -9,7 +9,7 @@ import {
     XFormDropdownColumn
 } from "@chilibase/frontend/XFormDataTable2";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {XInputDate} from "@chilibase/frontend/XInputDate";
+import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XUtils} from "@chilibase/frontend/XUtils";
@@ -61,10 +61,10 @@ export class CarForm extends XFormBaseModif {
                             <InputDecimal form={this} field="year" label="Year"/>
                             <InputDecimal form={this} field="price" label="Price" inline={true}/>
                         </div>
-                        <XInputDate form={this} field="carDate" label="Car date"/>
-                        <XInputDate form={this} field="carDatetime" label="Car datetime"/>
+                        <InputDate form={this} field="carDate" label="Car date"/>
+                        <InputDate form={this} field="carDatetime" label="Car datetime"/>
                         <div className="x-form-inline-row">
-                            <XInputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
+                            <InputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
                             <InputText form={this} field="modifXUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
                         </div>
                     </div>

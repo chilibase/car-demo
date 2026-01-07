@@ -7,7 +7,7 @@ import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
 import type {XObject} from "@chilibase/frontend/XObject";
-import {XInputDate} from "@chilibase/frontend/XInputDate";
+import {InputDate} from "@chilibase/frontend/input-date";
 import {type XFormProps} from "@chilibase/frontend/XFormBase";
 
 export class ClientForm extends XFormBaseModif {
@@ -28,10 +28,10 @@ export class ClientForm extends XFormBaseModif {
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <InputText form={this} field="name" label="Name"/>
-                        <XInputDate form={this} field="birthDate" label="Birth date"/>
+                        <InputDate form={this} field="birthDate" label="Birth date"/>
                         <InputText form={this} field="contact" label="Contact"/>
                         <InputText form={this} field="address" label="Address" inputStyle={{width:'25rem'}}/>
-                        <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
+                        <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import type { XUser } from "@chilibase/frontend/XUser";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
 import { XCheckbox } from "@chilibase/frontend/XCheckbox";
-import {XInputDate} from "@chilibase/frontend/XInputDate";
+import {InputDate} from "@chilibase/frontend/input-date";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 
 // readonly version used for demo - use XUserBrowse/XUserForm from lib
@@ -31,7 +31,7 @@ export class XUserCarDemoForm extends XFormBaseModif {
                         <InputText form={this} field="name" label="Name" size={30} labelStyle={{width:'14rem'}}/>
                         <XCheckbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
                         <XCheckbox form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
-                        <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true} labelStyle={{width:'14rem'}}/>
+                        <InputDate form={this} field="modifDate" label="Modified at" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="modifXUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
                     </div>
                 </div>

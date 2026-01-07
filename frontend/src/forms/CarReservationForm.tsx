@@ -8,7 +8,7 @@ import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
 import type {XObject} from "@chilibase/frontend/XObject";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
-import {XInputDate} from "@chilibase/frontend/XInputDate";
+import {InputDate} from "@chilibase/frontend/input-date";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {ClientBrowse} from "./ClientBrowse";
 import {ClientForm} from "./ClientForm";
@@ -42,15 +42,15 @@ export class CarReservationForm extends XFormBaseModif {
                                        suggestionsLoad="lazy"
                                        SearchBrowse={ClientBrowse} AssocForm={ClientForm}
                         />
-                        <XInputDate form={this} field="dateFrom" label="Date from"/>
-                        <XInputDate form={this} field="dateTo" label="Date to"/>
+                        <InputDate form={this} field="dateFrom" label="Date from"/>
+                        <InputDate form={this} field="dateTo" label="Date to"/>
                         <AutoComplete form={this} assocField="car" label="Car"
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
                         <InputDecimal form={this} field="price" label="Price"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
-                        <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
+                        <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
