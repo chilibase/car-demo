@@ -8,7 +8,7 @@ import {
     XFormColumn,
     XFormDropdownColumn
 } from "@chilibase/frontend/XFormDataTable2";
-import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
+import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XInputDate} from "@chilibase/frontend/XInputDate";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
@@ -47,7 +47,7 @@ export class CarForm extends XFormBaseModif {
                 <XFormHeader form={this} label="Car"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <div className="x-form-inline-row">
                             <InputText form={this} field="vin" label="Vin"/>
                             <XCheckbox form={this} field="carBoolean" label="Car boolean" inline={true}/>
@@ -58,8 +58,8 @@ export class CarForm extends XFormBaseModif {
                     <div className="x-form-col">
                         <InputText form={this} field="color" label="Color"/>
                         <div className="x-form-inline-row">
-                            <XInputDecimal form={this} field="year" label="Year"/>
-                            <XInputDecimal form={this} field="price" label="Price" inline={true}/>
+                            <InputDecimal form={this} field="year" label="Year"/>
+                            <InputDecimal form={this} field="price" label="Price" inline={true}/>
                         </div>
                         <XInputDate form={this} field="carDate" label="Car date"/>
                         <XInputDate form={this} field="carDatetime" label="Car datetime"/>
@@ -69,7 +69,7 @@ export class CarForm extends XFormBaseModif {
                         </div>
                     </div>
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
+                        <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
                         <XDropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
                         <AutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                         <XToOneAssocButton form={this} assocField="brandAssoc" assocForm={<BrandForm/>} label="Brand assoc AssocButton" buttonLabel="Brand form"/>

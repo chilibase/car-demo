@@ -1,7 +1,7 @@
 import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
+import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
@@ -26,7 +26,7 @@ export class ClientForm extends XFormBaseModif {
                 <XFormHeader form={this} label="Client"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <InputText form={this} field="name" label="Name"/>
                         <XInputDate form={this} field="birthDate" label="Birth date"/>
                         <InputText form={this} field="contact" label="Contact"/>

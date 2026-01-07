@@ -2,7 +2,7 @@ import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XFormBase, type XFormProps} from "@chilibase/frontend/XFormBase";
-import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
+import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
@@ -19,7 +19,7 @@ export class BrandForm extends XFormBase {
                 <XFormHeader form={this} label="Brand"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <InputText form={this} field="brand" label="Brand"/>
                     </div>
                 </div>

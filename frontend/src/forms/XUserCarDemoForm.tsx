@@ -2,7 +2,7 @@ import type { XFormProps } from "@chilibase/frontend/XFormBase";
 import { XFormBaseModif } from "@chilibase/frontend/XFormBaseModif";
 import { XFormHeader } from "@chilibase/frontend/XFormHeader";
 import type { XUser } from "@chilibase/frontend/XUser";
-import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
+import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
 import { XCheckbox } from "@chilibase/frontend/XCheckbox";
 import {XInputDate} from "@chilibase/frontend/XInputDate";
@@ -26,7 +26,7 @@ export class XUserCarDemoForm extends XFormBaseModif {
                 <XFormHeader label="User"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
+                        <InputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="username" label="Username" size={30} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="name" label="Name" size={30} labelStyle={{width:'14rem'}}/>
                         <XCheckbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>

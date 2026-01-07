@@ -1,7 +1,7 @@
 import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {XInputDecimal} from "@chilibase/frontend/XInputDecimal";
+import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
@@ -36,7 +36,7 @@ export class CarReservationForm extends XFormBaseModif {
                 <XFormHeader form={this} label="Car reservation"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
-                        <XInputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <AutoComplete form={this} assocField="client" label="Client" width="30rem"
                                        displayField={["name", "birthDate", "address"]} sortField="name" scrollHeight="25rem"
                                        suggestionsLoad="lazy"
@@ -48,7 +48,7 @@ export class CarReservationForm extends XFormBaseModif {
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
-                        <XInputDecimal form={this} field="price" label="Price"/>
+                        <InputDecimal form={this} field="price" label="Price"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <XInputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
