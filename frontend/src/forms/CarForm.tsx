@@ -1,6 +1,6 @@
 import {InputText} from "@chilibase/frontend/input-text";
 import type {XFormProps} from "@chilibase/frontend/XFormBase";
-import {XDropdown} from "@chilibase/frontend/XDropdown";
+import {Dropdown} from "@chilibase/frontend/dropdown";
 import {XToOneAssocButton} from "@chilibase/frontend/XToOneAssocButton";
 import {BrandForm} from "./BrandForm";
 import {
@@ -70,7 +70,7 @@ export class CarForm extends XFormBaseModif {
                     </div>
                     <div className="x-form-col">
                         <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
-                        <XDropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
+                        <Dropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
                         <AutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                         <XToOneAssocButton form={this} assocField="brandAssoc" assocForm={<BrandForm/>} label="Brand assoc AssocButton" buttonLabel="Brand form"/>
                     </div>
