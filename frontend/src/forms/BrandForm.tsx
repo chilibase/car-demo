@@ -3,7 +3,6 @@ import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {XFormBase, type XFormProps} from "@chilibase/frontend/XFormBase";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {XUtils} from "@chilibase/frontend/XUtils";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 
@@ -30,6 +29,3 @@ export class BrandForm extends XFormBase {
         );
     }
 }
-
-// registration is used if user opens form from editable Browse saved in DB
-XUtils.registerAppForm(<BrandForm/>, "Brand");

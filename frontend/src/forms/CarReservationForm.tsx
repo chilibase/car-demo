@@ -90,7 +90,3 @@ export class CarReservationForm extends XFormBaseModif {
     //await new Promise(r => setTimeout(r, 2500));
     return XUtils.fetchById("CarReservation", ["client", "car.brandAssoc", "modifXUser"], id);
 }
-
-
-// registration is used if user opens form from editable Browse saved in DB
-XUtils.registerAppForm(<CarReservationForm/>, "CarReservation");

@@ -2,7 +2,6 @@ import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {XUtils} from "@chilibase/frontend/XUtils";
 import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 import {XFormHeader} from "@chilibase/frontend/XFormHeader";
 import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
@@ -46,6 +45,3 @@ export class ClientForm extends XFormBaseModif {
 (ClientForm as any).assocList = (): string[] => {
     return ["modifXUser"];
 }
-
-// registration is used if user opens form from editable Browse saved in DB
-XUtils.registerAppForm(<ClientForm/>, "Client");

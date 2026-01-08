@@ -11,7 +11,6 @@ import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {XUtils} from "@chilibase/frontend/XUtils";
 import {Checkbox} from "@chilibase/frontend/checkbox";
 import type {XErrors} from "@chilibase/frontend/XErrors";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
@@ -98,6 +97,3 @@ export class CarForm extends XFormBaseModif {
 (CarForm as any).assocList = (): string[] => {
     return ["modifXUser", "brandAssoc", "rideList.country"];
 }
-
-// registration is used if user opens form from editable Browse saved in DB
-XUtils.registerAppForm(<CarForm/>, "Car");
