@@ -28,7 +28,7 @@ export class CarForm extends FormBaseModif {
         return {carBoolean: false, rideList: [], version: 0};
     }
 
-    // overrides method in XFormBase
+    // overrides method in FormBase
     async validate(object: XObject): Promise<XErrors> {
         const errors: XErrors = {};
         if (object.vin && object.vin.length < 3) {
