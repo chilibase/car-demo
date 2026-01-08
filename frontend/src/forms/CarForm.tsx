@@ -3,10 +3,10 @@ import type {XFormProps} from "@chilibase/frontend/XFormBase";
 import {Dropdown} from "@chilibase/frontend/dropdown";
 import {BrandForm} from "./BrandForm";
 import {
-    XFormDataTable2,
-    XFormColumn,
-    XFormDropdownColumn
-} from "@chilibase/frontend/XFormDataTable2";
+    FormDataTable,
+    FormColumn,
+    FormDropdownColumn
+} from "@chilibase/frontend/form-data-table";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
@@ -74,18 +74,18 @@ export class CarForm extends XFormBaseModif {
                     </div>
                 </div>
                 <div className="x-viewport-width">
-                    <XFormDataTable2 form={this} assocField="rideList" label="Ride list">
-                        <XFormColumn field="id" header="ID" readOnly={true} width="5rem"/>
-                        <XFormColumn field="cityFrom" header="From" width={'10rem'}/>
-                        <XFormColumn field="cityTo" header="To" width={'10rem'}/>
-                        <XFormColumn field="km"/>
-                        <XFormColumn field="fuelPrice" header="Fuel - price"/>
-                        <XFormColumn field="rideDate" header="Ride Date"/>
-                        <XFormColumn field="rideDatetime" header="Ride Datetime"/>
-                        <XFormColumn field="rideBoolean" header="Boolean"/>
-                        <XFormColumn field="country.id" header="ID country"/>
-                        <XFormDropdownColumn assocField="country" displayField="code" header="Country Drop"/>
-                    </XFormDataTable2>
+                    <FormDataTable form={this} assocField="rideList" label="Ride list">
+                        <FormColumn field="id" header="ID" readOnly={true} width="5rem"/>
+                        <FormColumn field="cityFrom" header="From" width={'10rem'}/>
+                        <FormColumn field="cityTo" header="To" width={'10rem'}/>
+                        <FormColumn field="km"/>
+                        <FormColumn field="fuelPrice" header="Fuel - price"/>
+                        <FormColumn field="rideDate" header="Ride Date"/>
+                        <FormColumn field="rideDatetime" header="Ride Datetime"/>
+                        <FormColumn field="rideBoolean" header="Boolean"/>
+                        <FormColumn field="country.id" header="ID country"/>
+                        <FormDropdownColumn assocField="country" displayField="code" header="Country Drop"/>
+                    </FormDataTable>
                 </div>
                 <XFormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="CarForm.tsx"/>
