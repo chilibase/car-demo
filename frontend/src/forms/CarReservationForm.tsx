@@ -3,9 +3,7 @@ import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XUtils} from "@chilibase/frontend/XUtils";
-import {XFormFooter} from "@chilibase/frontend/XFormFooter";
-import {XFormHeader} from "@chilibase/frontend/XFormHeader";
-import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
+import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import type {XObject} from "@chilibase/frontend/XObject";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import {InputDate} from "@chilibase/frontend/input-date";
@@ -14,16 +12,13 @@ import {ClientBrowse} from "./ClientBrowse";
 import {ClientForm} from "./ClientForm";
 import {CarBrowse} from "./CarBrowse";
 import {CarForm} from "./CarForm";
-import type {XFormProps} from "@chilibase/frontend/XFormBase";
+import type {FormProps} from "@chilibase/frontend/form";
 import type {CarReservation} from "../model/car-reservation.entity.ts";
 
-export class CarReservationForm extends XFormBaseModif {
+export class CarReservationForm extends FormBaseModif {
 
-    constructor(props: XFormProps) {
+    constructor(props: FormProps) {
         super(props, "CarReservation");
-
-        // row Brand (used in AutoComplete for Car) is not joined automatically
-        //this.addField("car.brandAssoc.brand");
     }
 
     createNewObject(): XObject {
@@ -33,7 +28,7 @@ export class CarReservationForm extends XFormBaseModif {
     render() {
         return (
             <div>
-                <XFormHeader form={this} label="Car reservation"/>
+                <FormHeader form={this} label="Car reservation"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
@@ -54,7 +49,7 @@ export class CarReservationForm extends XFormBaseModif {
                         <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
-                <XFormFooter form={this}/>
+                <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="CarReservationForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="car-reservation.entity.ts"/>
             </div>

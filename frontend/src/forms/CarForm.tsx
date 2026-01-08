@@ -1,5 +1,5 @@
 import {InputText} from "@chilibase/frontend/input-text";
-import type {XFormProps} from "@chilibase/frontend/XFormBase";
+import type {FormProps} from "@chilibase/frontend/form";
 import {Dropdown} from "@chilibase/frontend/dropdown";
 import {BrandForm} from "./BrandForm";
 import {
@@ -14,15 +14,13 @@ import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {Checkbox} from "@chilibase/frontend/checkbox";
 import type {XErrors} from "@chilibase/frontend/XErrors";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
-import {XFormFooter} from "@chilibase/frontend/XFormFooter";
+import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
-import {XFormHeader} from "@chilibase/frontend/XFormHeader";
-import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
 import type {XObject} from "@chilibase/frontend/XObject";
 
-export class CarForm extends XFormBaseModif {
+export class CarForm extends FormBaseModif {
 
-    constructor(props: XFormProps) {
+    constructor(props: FormProps) {
         super(props, "Car");
     }
 
@@ -42,7 +40,7 @@ export class CarForm extends XFormBaseModif {
     render() {
         return (
             <div>
-                <XFormHeader form={this} label="Car"/>
+                <FormHeader form={this} label="Car"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
@@ -86,7 +84,7 @@ export class CarForm extends XFormBaseModif {
                         <FormDropdownColumn assocField="country" displayField="code" header="Country Drop"/>
                     </FormDataTable>
                 </div>
-                <XFormFooter form={this}/>
+                <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="CarForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="car.entity.ts"/>
             </div>

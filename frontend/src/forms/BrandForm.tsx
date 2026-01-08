@@ -1,28 +1,27 @@
 import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {XFormBase, type XFormProps} from "@chilibase/frontend/XFormBase";
+import type {FormProps} from "@chilibase/frontend/form";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {XFormFooter} from "@chilibase/frontend/XFormFooter";
-import {XFormHeader} from "@chilibase/frontend/XFormHeader";
+import {FormBase, FormFooter, FormHeader} from "@chilibase/frontend/form";
 
-export class BrandForm extends XFormBase {
+export class BrandForm extends FormBase {
 
-    constructor(props: XFormProps) {
+    constructor(props: FormProps) {
         super(props, "Brand");
     }
 
     render() {
         return (
             <div>
-                <XFormHeader form={this} label="Brand"/>
+                <FormHeader form={this} label="Brand"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <InputText form={this} field="brand" label="Brand"/>
                     </div>
                 </div>
-                <XFormFooter form={this}/>
+                <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="BrandForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="brand.entity.ts"/>
             </div>

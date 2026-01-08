@@ -2,16 +2,14 @@ import {InputText} from "@chilibase/frontend/input-text";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {XFormFooter} from "@chilibase/frontend/XFormFooter";
-import {XFormHeader} from "@chilibase/frontend/XFormHeader";
-import {XFormBaseModif} from "@chilibase/frontend/XFormBaseModif";
+import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import type {XObject} from "@chilibase/frontend/XObject";
 import {InputDate} from "@chilibase/frontend/input-date";
-import {type XFormProps} from "@chilibase/frontend/XFormBase";
+import type {FormProps} from "@chilibase/frontend/form";
 
-export class ClientForm extends XFormBaseModif {
+export class ClientForm extends FormBaseModif {
 
-    constructor(props: XFormProps) {
+    constructor(props: FormProps) {
         super(props, "Client");
     }
 
@@ -22,7 +20,7 @@ export class ClientForm extends XFormBaseModif {
     render() {
         return (
             <div>
-                <XFormHeader form={this} label="Client"/>
+                <FormHeader form={this} label="Client"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
@@ -34,7 +32,7 @@ export class ClientForm extends XFormBaseModif {
                         <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
-                <XFormFooter form={this}/>
+                <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="ClientForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="client.entity.ts"/>
             </div>

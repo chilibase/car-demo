@@ -1,17 +1,14 @@
-import type { XFormProps } from "@chilibase/frontend/XFormBase";
-import { XFormBaseModif } from "@chilibase/frontend/XFormBaseModif";
-import { XFormHeader } from "@chilibase/frontend/XFormHeader";
+import { FormBaseModif, FormHeader, FormFooter, type FormProps } from "@chilibase/frontend/form";
 import type { XUser } from "@chilibase/frontend/XUser";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
 import {Checkbox} from "@chilibase/frontend/checkbox";
 import {InputDate} from "@chilibase/frontend/input-date";
-import {XFormFooter} from "@chilibase/frontend/XFormFooter";
 
 // readonly version used for demo - use XUserBrowse/XUserForm from lib
-export class XUserCarDemoForm extends XFormBaseModif {
+export class XUserCarDemoForm extends FormBaseModif {
 
-    constructor(props: XFormProps) {
+    constructor(props: FormProps) {
         super(props, "XUser");
     }
 
@@ -23,7 +20,7 @@ export class XUserCarDemoForm extends XFormBaseModif {
     render() {
         return (
             <div>
-                <XFormHeader label="User"/>
+                <FormHeader label="User"/>
                 <div className="x-form-row">
                     <div className="x-form-col">
                         <InputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
@@ -35,7 +32,7 @@ export class XUserCarDemoForm extends XFormBaseModif {
                         <InputText form={this} field="modifXUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
                     </div>
                 </div>
-                <XFormFooter form={this}/>
+                <FormFooter form={this}/>
             </div>
         );
     }
