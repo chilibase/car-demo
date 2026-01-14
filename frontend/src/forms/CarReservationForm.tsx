@@ -4,7 +4,6 @@ import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {XUtils} from "@chilibase/frontend/XUtils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
-import type {XObject} from "@chilibase/frontend/XObject";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
@@ -19,10 +18,6 @@ export class CarReservationForm extends FormBaseModif {
 
     constructor(props: FormProps) {
         super(props, "CarReservation");
-    }
-
-    createNewObject(): XObject {
-        return {version: 0};
     }
 
     render() {
@@ -65,7 +60,7 @@ export class CarReservationForm extends FormBaseModif {
 
 // static function (can be used without instantiating)
 (CarReservationForm as any).createObject = async (): Promise<CarReservation> => {
-    return {version: 0, price: 32200} as CarReservation;
+    return {version: 0, price: 32200} as CarReservation; // init values
 }
 
 // static function (can be used without instantiating)

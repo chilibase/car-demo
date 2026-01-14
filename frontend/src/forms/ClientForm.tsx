@@ -3,7 +3,6 @@ import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
-import type {XObject} from "@chilibase/frontend/XObject";
 import {InputDate} from "@chilibase/frontend/input-date";
 import type {FormProps} from "@chilibase/frontend/form";
 
@@ -11,10 +10,6 @@ export class ClientForm extends FormBaseModif {
 
     constructor(props: FormProps) {
         super(props, "Client");
-    }
-
-    createNewObject(): XObject {
-        return {version: 0};
     }
 
     render() {

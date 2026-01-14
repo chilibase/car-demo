@@ -17,15 +17,12 @@ import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import type {XObject} from "@chilibase/frontend/XObject";
+import type {Car} from "../model/car.entity.ts";
 
 export class CarForm extends FormBaseModif {
 
     constructor(props: FormProps) {
         super(props, "Car");
-    }
-
-    createNewObject(): XObject {
-        return {carBoolean: false, rideList: [], version: 0};
     }
 
     // overrides method in FormBase
@@ -90,6 +87,10 @@ export class CarForm extends FormBaseModif {
             </div>
         );
     }
+}
+
+(CarForm as any).createObject = async (): Promise<Car> => {
+    return {carBoolean: false, rideList: [], version: 0} as unknown as Car;
 }
 
 (CarForm as any).assocList = (): string[] => {
