@@ -1,5 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, VersionColumn} from 'typeorm';
-import {XUser} from "@chilibase/backend/x-user.entity";
+import {User} from "@chilibase/backend/administration";
 
 @Entity()
 export class Client {
@@ -23,9 +23,9 @@ export class Client {
     @Column("timestamp without time zone", { name: "modif_date", nullable: true })
     modifDate: Date | null;
 
-    @ManyToOne(() => XUser, { nullable: true })
+    @ManyToOne(() => User, { nullable: true })
     @JoinColumn([{ name: "modif_x_user_id", referencedColumnName: "id" }])
-    modifUser: XUser | null;
+    modifUser: User | null;
 
     @VersionColumn()
     version: number;

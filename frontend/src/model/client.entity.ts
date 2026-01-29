@@ -1,4 +1,4 @@
-import type {XUser} from "@chilibase/frontend/XUser";
+import type {User} from "@chilibase/frontend/administration";
 
 export interface Client {
     id: number;
@@ -9,6 +9,6 @@ export interface Client {
 
     // technical attributes
     modifDate: Date | null;
-    modifUser: XUser | null;
+    modifUser: User | null;
     version: number;
 }

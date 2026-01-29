@@ -1,6 +1,6 @@
 import type {Brand} from "./brand.entity";
 import type {Ride} from "./ride.entity";
-import type {XUser} from "@chilibase/frontend/XUser";
+import type {User} from "@chilibase/frontend/administration";
 
 export interface Car {
     id: number;
@@ -18,6 +18,6 @@ export interface Car {
 
     // technical attributes
     modifDate: Date | null;
-    modifUser: XUser | null;
+    modifUser: User | null;
     version: number;
 }

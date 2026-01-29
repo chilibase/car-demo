@@ -1,15 +1,15 @@
 import { FormBaseModif, FormHeader, FormFooter, type FormProps } from "@chilibase/frontend/form";
-import type { User } from "@chilibase/frontend/common";
+import type { User } from "@chilibase/frontend/administration";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
 import {Checkbox} from "@chilibase/frontend/checkbox";
 import {InputDate} from "@chilibase/frontend/input-date";
 
 // readonly version used for demo - use XUserBrowse/XUserForm from lib
-export class XUserCarDemoForm extends FormBaseModif {
+export class UserCarDemoForm extends FormBaseModif {
 
     constructor(props: FormProps) {
-        super(props, "XUser");
+        super(props, "User");
     }
 
     // @ts-ignore

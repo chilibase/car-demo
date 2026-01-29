@@ -1,6 +1,6 @@
 import type {Car} from "./car.entity";
 import type {Client} from "./client.entity";
-import type {XUser} from "@chilibase/frontend/XUser";
+import type {User} from "@chilibase/frontend/administration";
 
 export interface CarReservation {
     id: number;
@@ -13,6 +13,6 @@ export interface CarReservation {
 
     // technical attributes
     modifDate: Date | null;
-    modifUser: XUser | null;
+    modifUser: User | null;
     version: number;
 }
