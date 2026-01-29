@@ -58,7 +58,7 @@ export class CarForm extends FormBaseModif {
                         <InputDate form={this} field="carDatetime" label="Car datetime"/>
                         <div className="x-form-inline-row">
                             <InputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
-                            <InputText form={this} field="modifXUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
+                            <InputText form={this} field="modifUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
                         </div>
                     </div>
                     <div className="x-form-col">
@@ -94,5 +94,5 @@ export class CarForm extends FormBaseModif {
 }
 
 (CarForm as any).assocList = (): string[] => {
-    return ["modifXUser", "brandAssoc", "rideList.country"];
+    return ["modifUser", "brandAssoc", "rideList.country"];
 }

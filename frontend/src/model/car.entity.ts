@@ -18,6 +18,6 @@ export interface Car {
 
     // technical attributes
     modifDate: Date | null;
-    modifXUser: XUser | null;
+    modifUser: XUser | null;
     version: number;
 }

@@ -24,7 +24,7 @@ export class ClientForm extends FormBaseModif {
                         <InputText form={this} field="contact" label="Contact"/>
                         <InputText form={this} field="address" label="Address" inputStyle={{width:'25rem'}}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
-                        <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
+                        <InputText form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
                 <FormFooter form={this}/>
@@ -36,5 +36,5 @@ export class ClientForm extends FormBaseModif {
 }
 
 (ClientForm as any).assocList = (): string[] => {
-    return ["modifXUser"];
+    return ["modifUser"];
 }

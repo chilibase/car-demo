@@ -41,7 +41,7 @@ export class CarReservationForm extends FormBaseModif {
                         <InputDecimal form={this} field="price" label="Price"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
-                        <InputText form={this} field="modifXUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
+                        <InputText form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </div>
                 </div>
                 <FormFooter form={this}/>
@@ -65,18 +65,18 @@ export class CarReservationForm extends FormBaseModif {
 
 // static function (can be used without instantiating)
 // (CarReservationForm as any).assocList = (params?: XParams): string[] => {
-//     return ["client", "car.brandAssoc", "modifXUser"];
+//     return ["client", "car.brandAssoc", "modifUser"];
 // }
 
 // static function (can be used without instantiating)
 // not supported for now
 // (CarReservationForm as any).fieldList = (params?: XParams): string[] => {
-//     return ["client.name", "car.brandAssoc.brand", "modifXUser.name"];
+//     return ["client.name", "car.brandAssoc.brand", "modifUser.name"];
 // }
 
 // static function (can be used without instantiating)
 (CarReservationForm as any).loadObject = async (id: number): Promise<CarReservation> => {
     //console.log('pustame sleep 2500');
     //await new Promise(r => setTimeout(r, 2500));
-    return XUtils.fetchById("CarReservation", ["client", "car.brandAssoc", "modifXUser"], id);
+    return XUtils.fetchById("CarReservation", ["client", "car.brandAssoc", "modifUser"], id);
 }

@@ -35,7 +35,7 @@ export class CarReservation {
 
     @ManyToOne(() => XUser, { nullable: true })
     @JoinColumn([{ name: "modif_x_user_id", referencedColumnName: "id" }])
-    modifXUser: XUser | null;
+    modifUser: XUser | null;
 
     @VersionColumn()
     version: number;

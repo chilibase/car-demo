@@ -1,5 +1,5 @@
 import { FormBaseModif, FormHeader, FormFooter, type FormProps } from "@chilibase/frontend/form";
-import type { XUser } from "@chilibase/frontend/XUser";
+import type { User } from "@chilibase/frontend/common";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
 import {Checkbox} from "@chilibase/frontend/checkbox";
@@ -13,7 +13,7 @@ export class XUserCarDemoForm extends FormBaseModif {
     }
 
     // @ts-ignore
-    formReadOnly(object: XUser, field: string): boolean {
+    formReadOnly(object: User, field: string): boolean {
         return true; // always readonly
     }
 
@@ -29,7 +29,7 @@ export class XUserCarDemoForm extends FormBaseModif {
                         <Checkbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
                         <Checkbox form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true} labelStyle={{width:'14rem'}}/>
-                        <InputText form={this} field="modifXUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
+                        <InputText form={this} field="modifUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
                     </div>
                 </div>
                 <FormFooter form={this}/>
