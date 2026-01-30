@@ -13,7 +13,7 @@ export class UserCarDemoForm extends FormBaseModif {
     }
 
     // @ts-ignore
-    formReadOnly(object: User, field: string): boolean {
+    formReadOnly(entityRow: User, field: string): boolean {
         return true; // always readonly
     }
 
