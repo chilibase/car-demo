@@ -16,7 +16,7 @@ import type {XErrors} from "@chilibase/frontend/XErrors";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
-import type {XObject} from "@chilibase/frontend/XObject";
+import type {EntityRow} from "@chilibase/frontend/common";
 import type {Car} from "../model/car.entity.ts";
 
 export class CarForm extends FormBaseModif {
@@ -26,9 +26,9 @@ export class CarForm extends FormBaseModif {
     }
 
     // overrides method in FormBase
-    async validate(object: XObject): Promise<XErrors> {
+    async validate(entityRow: EntityRow): Promise<XErrors> {
         const errors: XErrors = {};
-        if (object.vin && object.vin.length < 3) {
+        if (entityRow.vin && entityRow.vin.length < 3) {
             errors.vin = "Length must be at least 3.";
         }
         return errors;
