@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@chilibase/backend':
-        specifier: 0.2.0
-        version: 0.2.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.2(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/passport@11.0.5(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(passport@0.7.0))(@nestjs/platform-express@11.1.9)(@nestjs/typeorm@11.0.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3))))(exceljs@4.4.0)(jwks-rsa@3.2.0)(passport-jwt@4.0.1)(passport-local@1.0.0)(passport@0.7.0)(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(postgres-interval@4.0.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3)))
+        specifier: 0.3.0
+        version: 0.3.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.2(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/passport@11.0.5(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(passport@0.7.0))(@nestjs/platform-express@11.1.9)(@nestjs/typeorm@11.0.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3))))(exceljs@4.4.0)(jwks-rsa@3.2.0)(passport-jwt@4.0.1)(passport-local@1.0.0)(passport@0.7.0)(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(postgres-interval@4.0.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3)))
       '@nestjs/common':
         specifier: ^11.0.20
         version: 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -343,8 +343,8 @@ packages:
   '@borewit/text-codec@0.1.1':
     resolution: {integrity: sha512-5L/uBxmjaCIX5h8Z+uu+kA9BQLkc/Wl06UGR5ajNRxu+/XjonB5i8JpgFMrPj3LXTCPA0pv8yxUvbUi+QthGGA==}
 
-  '@chilibase/backend@0.2.0':
-    resolution: {integrity: sha512-LDhu9WaDh5TfyTvCRKEO2LFinRIKs6ow3Z4wZtdFzjunqOh0g/3p+BtqaSFau1TndgPkgPKpNTsqLwO05ulA0g==}
+  '@chilibase/backend@0.3.0':
+    resolution: {integrity: sha512-wKl+bLzouKE3HWYnLvjDMb1ix1EO1O8tICbVh4vvvuNk7ZprUjvNzDg6XbIIgDleJB5CDgOl1qow/nYn6cEmtg==}
     engines: {node: '>=20'}
     peerDependencies:
       '@nestjs/common': ^11.0.20
@@ -4070,7 +4070,7 @@ snapshots:
 
   '@borewit/text-codec@0.1.1': {}
 
-  '@chilibase/backend@0.2.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.2(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/passport@11.0.5(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(passport@0.7.0))(@nestjs/platform-express@11.1.9)(@nestjs/typeorm@11.0.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3))))(exceljs@4.4.0)(jwks-rsa@3.2.0)(passport-jwt@4.0.1)(passport-local@1.0.0)(passport@0.7.0)(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(postgres-interval@4.0.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3)))':
+  '@chilibase/backend@0.3.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.2(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/passport@11.0.5(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(passport@0.7.0))(@nestjs/platform-express@11.1.9)(@nestjs/typeorm@11.0.0(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3))))(exceljs@4.4.0)(jwks-rsa@3.2.0)(passport-jwt@4.0.1)(passport-local@1.0.0)(passport@0.7.0)(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(postgres-interval@4.0.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.27(pg-query-stream@4.10.3(pg@8.16.3))(pg@8.16.3)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@22.19.1)(typescript@5.9.3)))':
     dependencies:
       '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/config': 4.0.2(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)

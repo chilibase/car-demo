@@ -1,4 +1,4 @@
-import {XUtils} from "@chilibase/frontend/XUtils";
+import {CBUtils} from "@chilibase/frontend/utils";
 import {Outlet} from "react-router";
 import {MenuItem, XMenubar} from "@chilibase/frontend/app-layout";
 import {XEnvVar, XViteAuth} from "@chilibase/frontend/XEnvVars";
@@ -37,13 +37,13 @@ export const AppMainLayout = () => {
             items:[
                 {template: <MenuItem label='Users' to='/users'/>},
                 //{label:'Browses', command: () => {openForm(<XBrowseMetaBrowse/>);}}
-                ...(XUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{template: <MenuItem label='Change password' to='/change-password'/>}] : [])
+                ...(CBUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{template: <MenuItem label='Change password' to='/change-password'/>}] : [])
             ]
         },
         {
             label:'Log off',
             icon:'pi pi-fw pi-power-off',
-            command: XUtils.getXToken()!.logout
+            command: CBUtils.getXToken()!.logout
         }
     ];
 
