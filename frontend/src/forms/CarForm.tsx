@@ -12,7 +12,7 @@ import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {Checkbox} from "@chilibase/frontend/checkbox";
-import type {XErrors} from "@chilibase/frontend/XErrors";
+import type {FormErrorMap} from "@chilibase/frontend/form";
 import {AutoComplete} from "@chilibase/frontend/auto-complete";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
@@ -26,8 +26,8 @@ export class CarForm extends FormBaseModif {
     }
 
     // overrides method in FormBase
-    async validate(entityRow: EntityRow): Promise<XErrors> {
-        const errors: XErrors = {};
+    async validate(entityRow: EntityRow): Promise<FormErrorMap> {
+        const errors: FormErrorMap = {};
         if (entityRow.vin && entityRow.vin.length < 3) {
             errors.vin = "Length must be at least 3.";
         }

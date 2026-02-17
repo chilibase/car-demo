@@ -273,7 +273,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   width: 25rem;
 }
 
-/* medium button with icon (component XButtonIconMedium) */
+/* medium button with icon (component ButtonIconMedium) */
 .p-button.x-button-icon-medium {
   width: 2.157rem;
 }
@@ -283,12 +283,12 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   padding: 0.09rem;
 }
 
-/* narrow button with icon (component XButtonIconNarrow) */
+/* narrow button with icon (component ButtonIconNarrow) */
 .p-button.x-button-icon-narrow {
   width: 1.5rem;
 }
 
-/* small button with icon (component XButtonIconSmall) */
+/* small button with icon (component ButtonIconSmall) */
 .p-button.x-button-icon-small {
   width: auto;
   padding: 0.21rem;
