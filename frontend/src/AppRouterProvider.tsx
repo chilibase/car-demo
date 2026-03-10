@@ -4,7 +4,7 @@ import {BrandBrowse} from "./forms/BrandBrowse.tsx";
 import {CarBrowse} from "./forms/CarBrowse.tsx";
 import {ClientBrowse} from "./forms/ClientBrowse.tsx";
 import {CarReservationBrowse} from "./forms/CarReservationBrowse.tsx";
-import {XChangePasswordForm} from "@chilibase/frontend/XChangePasswordForm";
+import {ChangePasswordForm} from "@chilibase/frontend/administration";
 import {CBUtils} from "@chilibase/frontend/utils";
 import {XEnvVar, XViteAuth} from "@chilibase/frontend/XEnvVars";
 import {UserCarDemoBrowse} from "./forms/UserCarDemoBrowse.tsx";
@@ -22,7 +22,7 @@ export const AppRouterProvider = () => {
                 {path: "/clients", Component: ClientBrowse},
                 {path: "/car-reservations", Component: CarReservationBrowse},
                 {path: "/users", Component: UserCarDemoBrowse},
-                ...(CBUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{path: "/change-password", Component: XChangePasswordForm}] : [])
+                ...(CBUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{path: "/change-password", Component: ChangePasswordForm}] : [])
             ]
         }
     ]);
