@@ -1,9 +1,12 @@
 import {CBUtils} from "@chilibase/frontend/utils";
 import {Outlet} from "react-router";
-import {MenuItem, XMenubar} from "@chilibase/frontend/app-layout";
+import {MenuItem, Menubar} from "@chilibase/frontend/app-layout";
 import {XEnvVar, XViteAuth} from "@chilibase/frontend/XEnvVars";
+import {useAuthSession} from "@chilibase/frontend/auth";
 
 export const AppMainLayout = () => {
+
+    const {session} = useAuthSession();
 
     // const navigate = useNavigate();
     //
@@ -43,13 +46,13 @@ export const AppMainLayout = () => {
         {
             label:'Log off',
             icon:'pi pi-fw pi-power-off',
-            command: CBUtils.getXToken()!.logout
+            command: session!.logout
         }
     ];
 
     return (
         <div>
-            <XMenubar model={items}/>
+            <Menubar model={items}/>
             <div className="App-form">
                 <Outlet/>
             </div>
