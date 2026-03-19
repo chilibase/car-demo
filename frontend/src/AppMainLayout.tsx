@@ -31,15 +31,15 @@ export const AppMainLayout = () => {
         // {
         //     label:'Runtime edit',
         //     items:[
-        //         {label:'Brand - runtime edit', command: () => {openForm(<XEditBrowse entity="Brand"/>);}},
-        //         {label:'Car - runtime edit', command: () => {openForm(<XEditBrowse entity="Car"/>);}}
+        //         {label:'Brand - runtime edit', command: () => {openForm(<DynamicBrowse entity="Brand"/>);}},
+        //         {label:'Car - runtime edit', command: () => {openForm(<DynamicBrowse entity="Car"/>);}}
         //     ]
         // },
         {
             label:'Administration',
             items:[
                 {template: <MenuItem label='Users' to='/users'/>},
-                //{label:'Browses', command: () => {openForm(<XBrowseMetaBrowse/>);}}
+                //{label:'Browses', command: () => {openForm(<BrowseMetaBrowse/>);}}
                 ...(CBUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{template: <MenuItem label='Change password' to='/change-password'/>}] : [])
             ]
         },
