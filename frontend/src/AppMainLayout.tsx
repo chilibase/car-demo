@@ -1,7 +1,7 @@
 import {CBUtils} from "@chilibase/frontend/utils";
 import {Outlet} from "react-router";
 import {MenuItem, Menubar} from "@chilibase/frontend/app-layout";
-import {XEnvVar, XViteAuth} from "@chilibase/frontend/XEnvVars";
+import {CBEnvVar, ViteAuth} from "@chilibase/frontend/env-vars";
 import {useAuthSession} from "@chilibase/frontend/auth";
 
 export const AppMainLayout = () => {
@@ -40,7 +40,7 @@ export const AppMainLayout = () => {
             items:[
                 {template: <MenuItem label='Users' to='/users'/>},
                 //{label:'Browses', command: () => {openForm(<BrowseMetaBrowse/>);}}
-                ...(CBUtils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.LOCAL ? [{template: <MenuItem label='Change password' to='/change-password'/>}] : [])
+                ...(CBUtils.getEnvVarValue(CBEnvVar.VITE_AUTH) === ViteAuth.LOCAL ? [{template: <MenuItem label='Change password' to='/change-password'/>}] : [])
             ]
         },
         {
