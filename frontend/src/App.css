@@ -139,7 +139,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 }
 
 /* multiline content in lazy datatable - overrides nowrap of the element td
-   we want it the same way like in InputTextarea (and also like in Editor) */
+   we want it the same way like in TextareaField (and also like in Editor) */
 .x-multiline-content {
   white-space: pre-wrap;
 }

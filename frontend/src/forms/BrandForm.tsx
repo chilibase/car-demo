@@ -1,4 +1,4 @@
-import {InputText} from "@chilibase/frontend/input-text";
+import {TextField} from "@chilibase/frontend/text-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import type {FormProps} from "@chilibase/frontend/form";
@@ -19,7 +19,7 @@ export class BrandForm extends FormBase {
                 <FormRow>
                     <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <InputText form={this} field="brand" label="Brand"/>
+                        <TextField form={this} field="brand" label="Brand"/>
                     </FormCol>
                 </FormRow>
                 <FormFooter form={this}/>

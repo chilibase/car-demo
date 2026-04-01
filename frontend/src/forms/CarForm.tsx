@@ -1,4 +1,4 @@
-import {InputText} from "@chilibase/frontend/input-text";
+import {TextField} from "@chilibase/frontend/text-field";
 import type {FormProps} from "@chilibase/frontend/form";
 import {Dropdown} from "@chilibase/frontend/dropdown";
 import {BrandForm} from "./BrandForm";
@@ -15,7 +15,7 @@ import {CheckboxField} from "@chilibase/frontend/checkbox-field";
 import type {FormErrorMap} from "@chilibase/frontend/form";
 import {AutocompleteField} from "@chilibase/frontend/autocomplete-field";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
-import {InputTextarea} from "@chilibase/frontend/input-textarea";
+import {MultilineTextField} from "@chilibase/frontend/multiline-text-field";
 import type {EntityRow} from "@chilibase/frontend/common";
 import type {Car} from "../model/car.entity.ts";
 import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
@@ -43,14 +43,14 @@ export class CarForm extends FormBaseModif {
                     <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <FormRow inline={true}>
-                            <InputText form={this} field="vin" label="Vin"/>
+                            <TextField form={this} field="vin" label="Vin"/>
                             <CheckboxField form={this} field="carBoolean" label="Car boolean" labelStyle={{width:'8rem'}}/>
                         </FormRow>
-                        <InputText form={this} field="brandString" label="Brand string"/>
-                        <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
+                        <TextField form={this} field="brandString" label="Brand string"/>
+                        <MultilineTextField form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                     </FormCol>
                     <FormCol>
-                        <InputText form={this} field="color" label="Color"/>
+                        <TextField form={this} field="color" label="Color"/>
                         <FormRow inline={true}>
                             <InputDecimal form={this} field="year" label="Year"/>
                             <InputDecimal form={this} field="price" label="Price" labelStyle={{width:'4rem'}}/>
@@ -59,7 +59,7 @@ export class CarForm extends FormBaseModif {
                         <DateField form={this} field="carDatetime" label="Car datetime"/>
                         <FormRow inline={true}>
                             <DateField form={this} field="modifDate" label="Modified" readOnly={true}/>
-                            <InputText form={this} field="modifUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
+                            <TextField form={this} field="modifUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
                         </FormRow>
                     </FormCol>
                     <FormCol>

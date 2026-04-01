@@ -1,10 +1,10 @@
-import {InputText} from "@chilibase/frontend/input-text";
+import {TextField} from "@chilibase/frontend/text-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {CBUtils} from "@chilibase/frontend/utils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
-import {InputTextarea} from "@chilibase/frontend/input-textarea";
+import {MultilineTextField} from "@chilibase/frontend/multiline-text-field";
 import {DateField} from "@chilibase/frontend/date-field";
 import {AutocompleteField} from "@chilibase/frontend/autocomplete-field";
 import {ClientBrowse} from "./ClientBrowse";
@@ -40,9 +40,9 @@ export class CarReservationForm extends FormBaseModif {
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
                         <InputDecimal form={this} field="price" label="Price"/>
-                        <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
+                        <MultilineTextField form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <DateField form={this} field="modifDate" label="Modified at" readOnly={true}/>
-                        <InputText form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
+                        <TextField form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </FormCol>
                 </FormRow>
                 <FormFooter form={this}/>
