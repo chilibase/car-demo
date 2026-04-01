@@ -4,6 +4,7 @@ import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import type {FormProps} from "@chilibase/frontend/form";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {FormBase, FormFooter, FormHeader} from "@chilibase/frontend/form";
+import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
 
 export class BrandForm extends FormBase {
 
@@ -15,12 +16,12 @@ export class BrandForm extends FormBase {
         return (
             <div>
                 <FormHeader form={this} label="Brand"/>
-                <div className="x-form-row">
-                    <div className="x-form-col">
+                <FormRow>
+                    <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <InputText form={this} field="brand" label="Brand"/>
-                    </div>
-                </div>
+                    </FormCol>
+                </FormRow>
                 <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="BrandForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="brand.entity.ts"/>

@@ -13,6 +13,7 @@ import {CarBrowse} from "./CarBrowse";
 import {CarForm} from "./CarForm";
 import type {FormProps} from "@chilibase/frontend/form";
 import type {CarReservation} from "../model/car-reservation.entity.ts";
+import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
 
 export class CarReservationForm extends FormBaseModif {
 
@@ -24,8 +25,8 @@ export class CarReservationForm extends FormBaseModif {
         return (
             <div>
                 <FormHeader form={this} label="Car reservation"/>
-                <div className="x-form-row">
-                    <div className="x-form-col">
+                <FormRow>
+                    <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <AutoComplete form={this} assocField="client" label="Client" width="30rem"
                                        displayField={["name", "birthDate", "address"]} sortField="name" scrollHeight="25rem"
@@ -42,8 +43,8 @@ export class CarReservationForm extends FormBaseModif {
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <InputText form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
-                    </div>
-                </div>
+                    </FormCol>
+                </FormRow>
                 <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="CarReservationForm.tsx"/>
                 <SourceCodeLinkEntity sourceCodeFile="car-reservation.entity.ts"/>

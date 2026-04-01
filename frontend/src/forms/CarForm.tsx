@@ -18,6 +18,7 @@ import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import type {EntityRow} from "@chilibase/frontend/common";
 import type {Car} from "../model/car.entity.ts";
+import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
 
 export class CarForm extends FormBaseModif {
 
@@ -38,35 +39,35 @@ export class CarForm extends FormBaseModif {
         return (
             <div>
                 <FormHeader form={this} label="Car"/>
-                <div className="x-form-row">
-                    <div className="x-form-col">
+                <FormRow>
+                    <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <div className="x-form-inline-row">
+                        <FormRow inline={true}>
                             <InputText form={this} field="vin" label="Vin"/>
-                            <Checkbox form={this} field="carBoolean" label="Car boolean" inline={true}/>
-                        </div>
+                            <Checkbox form={this} field="carBoolean" label="Car boolean" labelStyle={{width:'8rem'}}/>
+                        </FormRow>
                         <InputText form={this} field="brandString" label="Brand string"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
-                    </div>
-                    <div className="x-form-col">
+                    </FormCol>
+                    <FormCol>
                         <InputText form={this} field="color" label="Color"/>
-                        <div className="x-form-inline-row">
+                        <FormRow inline={true}>
                             <InputDecimal form={this} field="year" label="Year"/>
-                            <InputDecimal form={this} field="price" label="Price" inline={true}/>
-                        </div>
+                            <InputDecimal form={this} field="price" label="Price" labelStyle={{width:'4rem'}}/>
+                        </FormRow>
                         <InputDate form={this} field="carDate" label="Car date"/>
                         <InputDate form={this} field="carDatetime" label="Car datetime"/>
-                        <div className="x-form-inline-row">
+                        <FormRow inline={true}>
                             <InputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
                             <InputText form={this} field="modifUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
-                        </div>
-                    </div>
-                    <div className="x-form-col">
+                        </FormRow>
+                    </FormCol>
+                    <FormCol>
                         <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
                         <Dropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
                         <AutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
-                    </div>
-                </div>
+                    </FormCol>
+                </FormRow>
                 <div className="x-viewport-width">
                     <FormDataTable form={this} assocField="rideList" label="Ride list">
                         <FormColumn field="id" header="ID" readOnly={true} width="5rem"/>
