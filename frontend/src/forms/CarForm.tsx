@@ -8,7 +8,7 @@ import {
     FormDropdownColumn
 } from "@chilibase/frontend/form-data-table";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
-import {InputDate} from "@chilibase/frontend/input-date";
+import {DateField} from "@chilibase/frontend/date-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {CheckboxField} from "@chilibase/frontend/checkbox-field";
@@ -55,10 +55,10 @@ export class CarForm extends FormBaseModif {
                             <InputDecimal form={this} field="year" label="Year"/>
                             <InputDecimal form={this} field="price" label="Price" labelStyle={{width:'4rem'}}/>
                         </FormRow>
-                        <InputDate form={this} field="carDate" label="Car date"/>
-                        <InputDate form={this} field="carDatetime" label="Car datetime"/>
+                        <DateField form={this} field="carDate" label="Car date"/>
+                        <DateField form={this} field="carDatetime" label="Car datetime"/>
                         <FormRow inline={true}>
-                            <InputDate form={this} field="modifDate" label="Modified" readOnly={true}/>
+                            <DateField form={this} field="modifDate" label="Modified" readOnly={true}/>
                             <InputText form={this} field="modifUser.name" labelStyle={{width:'0rem'}} inputStyle={{width:'10rem'}} readOnly={true}/>
                         </FormRow>
                     </FormCol>

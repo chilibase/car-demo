@@ -5,7 +5,7 @@ import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {CBUtils} from "@chilibase/frontend/utils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
-import {InputDate} from "@chilibase/frontend/input-date";
+import {DateField} from "@chilibase/frontend/date-field";
 import {AutocompleteField} from "@chilibase/frontend/autocomplete-field";
 import {ClientBrowse} from "./ClientBrowse";
 import {ClientForm} from "./ClientForm";
@@ -33,15 +33,15 @@ export class CarReservationForm extends FormBaseModif {
                                        suggestionsLoad="lazy"
                                        SearchBrowse={ClientBrowse} AssocForm={ClientForm}
                         />
-                        <InputDate form={this} field="dateFrom" label="Date from"/>
-                        <InputDate form={this} field="dateTo" label="Date to"/>
+                        <DateField form={this} field="dateFrom" label="Date from"/>
+                        <DateField form={this} field="dateTo" label="Date to"/>
                         <AutocompleteField form={this} assocField="car" label="Car"
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
                         <InputDecimal form={this} field="price" label="Price"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
-                        <InputDate form={this} field="modifDate" label="Modified at" readOnly={true}/>
+                        <DateField form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <InputText form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>
                     </FormCol>
                 </FormRow>
