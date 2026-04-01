@@ -11,9 +11,9 @@ import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {Checkbox} from "@chilibase/frontend/checkbox";
+import {CheckboxField} from "@chilibase/frontend/checkbox-field";
 import type {FormErrorMap} from "@chilibase/frontend/form";
-import {AutoComplete} from "@chilibase/frontend/auto-complete";
+import {AutocompleteField} from "@chilibase/frontend/autocomplete-field";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import type {EntityRow} from "@chilibase/frontend/common";
@@ -44,7 +44,7 @@ export class CarForm extends FormBaseModif {
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
                         <FormRow inline={true}>
                             <InputText form={this} field="vin" label="Vin"/>
-                            <Checkbox form={this} field="carBoolean" label="Car boolean" labelStyle={{width:'8rem'}}/>
+                            <CheckboxField form={this} field="carBoolean" label="Car boolean" labelStyle={{width:'8rem'}}/>
                         </FormRow>
                         <InputText form={this} field="brandString" label="Brand string"/>
                         <InputTextarea form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
@@ -65,7 +65,7 @@ export class CarForm extends FormBaseModif {
                     <FormCol>
                         <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
                         <Dropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
-                        <AutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
+                        <AutocompleteField form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                     </FormCol>
                 </FormRow>
                 <div className="x-viewport-width">

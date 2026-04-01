@@ -21,7 +21,7 @@ body {
 }
 
 .App {
-  /* text-align: center; - centruje polozky v AutoComplete, co nechceme */
+  /* text-align: center; - centruje polozky v Autocomplete, co nechceme */
   /* skopirovane z App-header - to prislo cez npx create-react-app <app-name> */
   background-color: #282c34;
   color: white;
@@ -315,18 +315,18 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   padding-right: 0.75rem;
 }
 
-/* auto complete (XAutoCompleteBase), plati pre vsetky autocomplete-y, aj ked sa to pridavalo len koli XAutoCompleteDT */
+/* auto complete (AutocompleteInput), plati pre vsetky autocomplete-y, aj ked sa to pridavalo len koli TableAutocompleteField */
 .x-auto-complete-base {
   display: flex;
   /*max-height: 2.5rem; aby nevznikali "vysoke" autocomplete-y, ak je susedna polozka (textarea) na viac riadkov - netreba, lebo mame align-items: center; na .field.grid */
 }
 
-/* width: 100%; - koli auto complete in datatable (XAutoCompleteDT) - bez tohto bol span.p-autocomplete prilis kratky pri velmi sirokych stlpcoch */
+/* width: 100%; - koli auto complete in datatable (TableAutocompleteField) - bez tohto bol span.p-autocomplete prilis kratky pri velmi sirokych stlpcoch */
 .x-auto-complete-base > .p-autocomplete {
   width: 100%;
 }
 
-/* width: 100%; - koli auto complete in datatable (XAutoCompleteDT) - bez tohto flex prilis natahoval button (auto complete vyliezal z bunky, ak mal stlpec nastavenu custom sirku) */
+/* width: 100%; - koli auto complete in datatable (TableAutocompleteField) - bez tohto flex prilis natahoval button (auto complete vyliezal z bunky, ak mal stlpec nastavenu custom sirku) */
 .x-auto-complete-base > .p-autocomplete > .p-autocomplete-input {
   flex: 1 1 auto;
   width: 100%;
@@ -336,7 +336,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   flex: 0 1 auto;
 }
 
-/* split button only dropdown (in component XAutoCompleteBase) */
+/* split button only dropdown (in component AutocompleteInput) */
 .x-splitbutton-only-dropdown > .p-splitbutton-defaultbutton {
   display: none;
 }
@@ -362,12 +362,12 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   margin-right: 0rem;
 }
 
-/* .x-dropdownbutton for simple button in XAutoCompleteBase (no multiple operations) */
+/* .x-dropdownbutton for simple button in AutocompleteInput (no multiple operations) */
 .x-auto-complete-base > .x-dropdownbutton {
   width: 1.5rem;
 }
 
-/* split button only dropdown (in component XAutoCompleteBase) - mobile version*/
+/* split button only dropdown (in component AutocompleteInput) - mobile version*/
 .x-splitbutton-only-dropdown-mobile > .p-splitbutton-defaultbutton {
   display: none;
 }
@@ -396,7 +396,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   width: fit-content;
 }
 
-/* uprava dialogu v ktorom sa zobrazuju Form/Browse, hlavne v XAutoComplete,
+/* uprava dialogu v ktorom sa zobrazuju Form/Browse, hlavne v AutocompleteField,
    pozor, vyska header/footer ma vplyv na scrollovanie v dialogu */
 .x-dialog-without-header > .p-dialog-header {
   height: 1rem; /* potrebujeme aspon uzky header aby sme vedeli dialog presuvat */

@@ -6,7 +6,7 @@ import {CBUtils} from "@chilibase/frontend/utils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {InputTextarea} from "@chilibase/frontend/input-textarea";
 import {InputDate} from "@chilibase/frontend/input-date";
-import {AutoComplete} from "@chilibase/frontend/auto-complete";
+import {AutocompleteField} from "@chilibase/frontend/autocomplete-field";
 import {ClientBrowse} from "./ClientBrowse";
 import {ClientForm} from "./ClientForm";
 import {CarBrowse} from "./CarBrowse";
@@ -28,14 +28,14 @@ export class CarReservationForm extends FormBaseModif {
                 <FormRow>
                     <FormCol>
                         <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
-                        <AutoComplete form={this} assocField="client" label="Client" width="30rem"
+                        <AutocompleteField form={this} assocField="client" label="Client" width="30rem"
                                        displayField={["name", "birthDate", "address"]} sortField="name" scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={ClientBrowse} AssocForm={ClientForm}
                         />
                         <InputDate form={this} field="dateFrom" label="Date from"/>
                         <InputDate form={this} field="dateTo" label="Date to"/>
-                        <AutoComplete form={this} assocField="car" label="Car"
+                        <AutocompleteField form={this} assocField="car" label="Car"
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>

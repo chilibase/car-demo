@@ -2,7 +2,7 @@ import { FormBaseModif, FormHeader, FormFooter, type FormProps } from "@chilibas
 import type { User } from "@chilibase/frontend/administration";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {InputText} from "@chilibase/frontend/input-text";
-import {Checkbox} from "@chilibase/frontend/checkbox";
+import {CheckboxField} from "@chilibase/frontend/checkbox-field";
 import {InputDate} from "@chilibase/frontend/input-date";
 import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
 
@@ -27,8 +27,8 @@ export class UserCarDemoForm extends FormBaseModif {
                         <InputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="username" label="Username" size={30} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="name" label="Name" size={30} labelStyle={{width:'14rem'}}/>
-                        <Checkbox form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
-                        <Checkbox form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
+                        <CheckboxField form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
+                        <CheckboxField form={this} field="admin" label="Admin" labelStyle={{width:'14rem'}}/>
                         <InputDate form={this} field="modifDate" label="Modified at" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <InputText form={this} field="modifUser.name" label="Modified by" size={20} labelStyle={{width:'14rem'}}/>
                     </FormCol>
