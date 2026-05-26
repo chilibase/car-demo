@@ -1,6 +1,6 @@
 import {TextField} from "@chilibase/frontend/text-field";
 import type {FormProps} from "@chilibase/frontend/form";
-import {Dropdown} from "@chilibase/frontend/dropdown";
+import {SelectField} from "@chilibase/frontend/select-field";
 import {BrandForm} from "./BrandForm";
 import {
     FormDataTable,
@@ -64,7 +64,7 @@ export class CarForm extends FormBaseModif {
                     </FormCol>
                     <FormCol>
                         <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
-                        <Dropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
+                        <SelectField form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc SelectField"/>
                         <AutocompleteField form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                     </FormCol>
                 </FormRow>
