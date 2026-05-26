@@ -4,8 +4,8 @@ import {SelectField} from "@chilibase/frontend/select-field";
 import {BrandForm} from "./BrandForm";
 import {
     FormDataTable,
-    FormColumn,
-    FormDropdownColumn
+    Column,
+    SelectColumn
 } from "@chilibase/frontend/form-data-table";
 import {InputDecimal} from "@chilibase/frontend/input-decimal";
 import {DateField} from "@chilibase/frontend/date-field";
@@ -70,16 +70,16 @@ export class CarForm extends FormBaseModif {
                 </FormRow>
                 <div className="x-viewport-width">
                     <FormDataTable form={this} assocField="rideList" label="Ride list">
-                        <FormColumn field="id" header="ID" readOnly={true} width="5rem"/>
-                        <FormColumn field="cityFrom" header="From" width={'10rem'}/>
-                        <FormColumn field="cityTo" header="To" width={'10rem'}/>
-                        <FormColumn field="km"/>
-                        <FormColumn field="fuelPrice" header="Fuel - price"/>
-                        <FormColumn field="rideDate" header="Ride Date"/>
-                        <FormColumn field="rideDatetime" header="Ride Datetime"/>
-                        <FormColumn field="rideBoolean" header="Boolean"/>
-                        <FormColumn field="country.id" header="ID country"/>
-                        <FormDropdownColumn assocField="country" displayField="code" header="Country Drop"/>
+                        <Column field="id" header="ID" readOnly={true} width="5rem"/>
+                        <Column field="cityFrom" header="From" width={'10rem'}/>
+                        <Column field="cityTo" header="To" width={'10rem'}/>
+                        <Column field="km"/>
+                        <Column field="fuelPrice" header="Fuel - price"/>
+                        <Column field="rideDate" header="Ride Date"/>
+                        <Column field="rideDatetime" header="Ride Datetime"/>
+                        <Column field="rideBoolean" header="Boolean"/>
+                        <Column field="country.id" header="ID country"/>
+                        <SelectColumn assocField="country" displayField="code" header="Country Drop"/>
                     </FormDataTable>
                 </div>
                 <FormFooter form={this}/>
