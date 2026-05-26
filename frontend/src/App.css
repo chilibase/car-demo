@@ -123,7 +123,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   opacity: 0.6;
 }
 
-/* this css centers buttons in search dialog (XSearchButton, XSearchButtonDT) */
+/* this css centers buttons in search dialog (SearchField, TableSearchField) */
 /* zrealizujeme cez flex
 .x-lazy-datatable {
   text-align: center;
@@ -214,7 +214,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 }
 
 /* lazy datatable - body - not shrinked
-   (selector for .x-form-datatable with padding: 0.21rem targets lazy table opened from XSearchButtonDT, that's why we need this selector ) */
+   (selector for .x-form-datatable with padding: 0.21rem targets lazy table opened from TableSearchField, that's why we need this selector ) */
 .p-datatable.p-datatable-sm.x-lazy-datatable .p-datatable-tbody > tr > td {
   padding: 0.5rem;
 }
@@ -298,18 +298,18 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   height: 0rem;
 }
 
-/* search button (XSearchButton and XSearchButtonDT) */
-.x-search-button-base {
+/* search field (SearchField and TableSearchField) */
+.x-search-field {
   display: flex;
 }
 
-/* width: 100%; - koli search button in datatable (XSearchButtonDT) - bez tohto flex prilis natahoval button (search button vyliezal z bunky, ak mal stlpec nastavenu custom sirku) */
-.x-search-button-base > .p-inputtext {
+/* width: 100%; - koli search button in datatable (TableSearchField) - bez tohto flex prilis natahoval button (search button vyliezal z bunky, ak mal stlpec nastavenu custom sirku) */
+.x-search-field > .p-inputtext {
   flex: 1 1 auto;
   width: 100%;
 }
 
-.x-search-button-base > .p-button {
+.x-search-field > .p-button {
   flex: 0 1 auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
