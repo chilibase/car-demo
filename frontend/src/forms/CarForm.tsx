@@ -7,7 +7,7 @@ import {
     Column,
     SelectColumn
 } from "@chilibase/frontend/form-data-table";
-import {InputDecimal} from "@chilibase/frontend/input-decimal";
+import {NumberField} from "@chilibase/frontend/number-field";
 import {DateField} from "@chilibase/frontend/date-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
@@ -41,7 +41,7 @@ export class CarForm extends FormBaseModif {
                 <FormHeader form={this} label="Car"/>
                 <FormRow>
                     <FormCol>
-                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <NumberField form={this} field="id" label="ID" readOnly={true}/>
                         <FormRow inline={true}>
                             <TextField form={this} field="vin" label="Vin"/>
                             <CheckboxField form={this} field="carBoolean" label="Car boolean" labelStyle={{width:'8rem'}}/>
@@ -52,8 +52,8 @@ export class CarForm extends FormBaseModif {
                     <FormCol>
                         <TextField form={this} field="color" label="Color"/>
                         <FormRow inline={true}>
-                            <InputDecimal form={this} field="year" label="Year"/>
-                            <InputDecimal form={this} field="price" label="Price" labelStyle={{width:'4rem'}}/>
+                            <NumberField form={this} field="year" label="Year"/>
+                            <NumberField form={this} field="price" label="Price" labelStyle={{width:'4rem'}}/>
                         </FormRow>
                         <DateField form={this} field="carDate" label="Car date"/>
                         <DateField form={this} field="carDatetime" label="Car datetime"/>
@@ -63,7 +63,7 @@ export class CarForm extends FormBaseModif {
                         </FormRow>
                     </FormCol>
                     <FormCol>
-                        <InputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
+                        <NumberField form={this} field="brandAssoc.id" label="ID Brand"/>
                         <SelectField form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc SelectField"/>
                         <AutocompleteField form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                     </FormCol>

@@ -1,7 +1,7 @@
 import {TextField} from "@chilibase/frontend/text-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {InputDecimal} from "@chilibase/frontend/input-decimal";
+import {NumberField} from "@chilibase/frontend/number-field";
 import {CBUtils} from "@chilibase/frontend/utils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {MultilineTextField} from "@chilibase/frontend/multiline-text-field";
@@ -27,7 +27,7 @@ export class CarReservationForm extends FormBaseModif {
                 <FormHeader form={this} label="Car reservation"/>
                 <FormRow>
                     <FormCol>
-                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <NumberField form={this} field="id" label="ID" readOnly={true}/>
                         <AutocompleteField form={this} assocField="client" label="Client" width="30rem"
                                        displayField={["name", "birthDate", "address"]} sortField="name" scrollHeight="25rem"
                                        suggestionsLoad="lazy"
@@ -39,7 +39,7 @@ export class CarReservationForm extends FormBaseModif {
                                        displayField={["id", "brandAssoc.brand", "color"]} scrollHeight="25rem"
                                        suggestionsLoad="lazy"
                                        SearchBrowse={CarBrowse} AssocForm={CarForm}/>
-                        <InputDecimal form={this} field="price" label="Price"/>
+                        <NumberField form={this} field="price" label="Price"/>
                         <MultilineTextField form={this} field="comment" label="Comment" rows={2} autoResize={true}/>
                         <DateField form={this} field="modifDate" label="Modified at" readOnly={true}/>
                         <TextField form={this} field="modifUser.name" label="Modified by" readOnly={true} inputStyle={{width: '12.5rem'}}/>

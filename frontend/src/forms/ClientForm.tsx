@@ -1,7 +1,7 @@
 import {TextField} from "@chilibase/frontend/text-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {InputDecimal} from "@chilibase/frontend/input-decimal";
+import {NumberField} from "@chilibase/frontend/number-field";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {DateField} from "@chilibase/frontend/date-field";
 import type {FormProps} from "@chilibase/frontend/form";
@@ -19,7 +19,7 @@ export class ClientForm extends FormBaseModif {
                 <FormHeader form={this} label="Client"/>
                 <FormRow>
                     <FormCol>
-                        <InputDecimal form={this} field="id" label="ID" readOnly={true}/>
+                        <NumberField form={this} field="id" label="ID" readOnly={true}/>
                         <TextField form={this} field="name" label="Name"/>
                         <DateField form={this} field="birthDate" label="Birth date"/>
                         <TextField form={this} field="contact" label="Contact"/>

@@ -1,6 +1,6 @@
 import { FormBaseModif, FormHeader, FormFooter, type FormProps } from "@chilibase/frontend/form";
 import type { User } from "@chilibase/frontend/administration";
-import {InputDecimal} from "@chilibase/frontend/input-decimal";
+import {NumberField} from "@chilibase/frontend/number-field";
 import {TextField} from "@chilibase/frontend/text-field";
 import {CheckboxField} from "@chilibase/frontend/checkbox-field";
 import {DateField} from "@chilibase/frontend/date-field";
@@ -24,7 +24,7 @@ export class UserCarDemoForm extends FormBaseModif {
                 <FormHeader label="User"/>
                 <FormRow>
                     <FormCol>
-                        <InputDecimal form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
+                        <NumberField form={this} field="id" label="ID" readOnly={true} labelStyle={{width:'14rem'}}/>
                         <TextField form={this} field="username" label="Username" size={30} labelStyle={{width:'14rem'}}/>
                         <TextField form={this} field="name" label="Name" size={30} labelStyle={{width:'14rem'}}/>
                         <CheckboxField form={this} field="enabled" label="Enabled" labelStyle={{width:'14rem'}}/>
