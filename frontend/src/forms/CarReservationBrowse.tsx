@@ -1,5 +1,5 @@
 import {
-    LazyColumn,
+    Column,
     LazyDataTable,
     type SearchBrowseProps
 } from "@chilibase/frontend/lazy-data-table";
@@ -31,19 +31,19 @@ export const CarReservationBrowse = (props: SearchBrowseProps) => {
                                onClick: onAlert
                            }]}
                            searchBrowseParams={props.searchBrowseParams}>
-                <LazyColumn field="id" header="ID" width="5rem"/>
-                <LazyColumn field="client.name" header="Client" width="15rem"
+                <Column field="id" header="ID" width="5rem"/>
+                <Column field="client.name" header="Client" width="15rem"
                             autoFilter={true}
                             autoComplete={{
                                 assocField: "client", field: "name", ValueForm: ClientForm,
                                 lazyLoadMaxRows: 15, scrollHeight: "25rem"
                             }}/>
-                <LazyColumn field="dateFrom" header="Date from"/>
-                <LazyColumn field="dateTo" header="Date to"/>
-                <LazyColumn field="car.id" header="Car ID" width="5rem"/>
-                <LazyColumn field="car.brandAssoc.brand" header="Car brand" width="10rem"/>
-                <LazyColumn field="car.color" header="Car color" width="10rem"/>
-                <LazyColumn field="price" header="Price"/>
+                <Column field="dateFrom" header="Date from"/>
+                <Column field="dateTo" header="Date to"/>
+                <Column field="car.id" header="Car ID" width="5rem"/>
+                <Column field="car.brandAssoc.brand" header="Car brand" width="10rem"/>
+                <Column field="car.color" header="Car color" width="10rem"/>
+                <Column field="price" header="Price"/>
             </LazyDataTable>
             <SourceCodeLinkForm sourceCodeFile="CarReservationBrowse.tsx"/>
             <SourceCodeLinkEntity sourceCodeFile="car-reservation.entity.ts"/>

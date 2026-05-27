@@ -1,5 +1,5 @@
 import {
-    LazyColumn,
+    Column,
     LazyDataTable,
     type SearchBrowseProps
 } from "@chilibase/frontend/lazy-data-table";
@@ -14,10 +14,10 @@ export const ClientBrowse = (props: SearchBrowseProps) => {
             <LazyDataTable entity="Client" label="Clients" rows={30} formFooterHeight={'4.43rem'} sortField="id"
                            EditForm={ClientForm} removeRow={true}
                            searchBrowseParams={props.searchBrowseParams}>
-                <LazyColumn field="id" header="ID" width="5rem"/>
-                <LazyColumn field="name" header="Name" width="15rem"/>
-                <LazyColumn field="birthDate" header="Birth date"/>
-                <LazyColumn field="contact" header="Contact" width="10rem"/>
+                <Column field="id" header="ID" width="5rem"/>
+                <Column field="name" header="Name" width="15rem"/>
+                <Column field="birthDate" header="Birth date"/>
+                <Column field="contact" header="Contact" width="10rem"/>
             </LazyDataTable>
             <SourceCodeLinkForm sourceCodeFile="ClientBrowse.tsx"/>
             <SourceCodeLinkEntity sourceCodeFile="client.entity.ts"/>
