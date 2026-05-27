@@ -1,6 +1,6 @@
 import {CBUtils} from "@chilibase/frontend/utils";
 import {Outlet} from "react-router";
-import {MenuItem, Menubar} from "@chilibase/frontend/app-layout";
+import {MenuItem, MenuBar} from "@chilibase/frontend/app-layout";
 import {CBEnvVar, ViteAuth} from "@chilibase/frontend/env-vars";
 import {useAuthSession} from "@chilibase/frontend/auth";
 
@@ -52,7 +52,7 @@ export const AppMainLayout = () => {
 
     return (
         <div>
-            <Menubar model={items}/>
+            <MenuBar model={items}/>
             <div className="App-form">
                 <Outlet/>
             </div>
