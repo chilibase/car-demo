@@ -27,7 +27,7 @@ body {
   color: white;
 }
 
-/* formular (nachadza sa pod XMenu) - centruje sa horizontalne, menu je natiahnute na celu obrazovku */
+/* formular (nachadza sa pod MenuBar) - centruje sa horizontalne, menu je natiahnute na celu obrazovku */
 .App-form {
   /* skopirovane z App-header - to prislo cez npx create-react-app <app-name> */
   /*min-height: 100vh;*/
@@ -68,7 +68,7 @@ body {
                           tiez sposobi, ze komponent nie je roztiahnuty na celu vysku (netreba max-height: 2.5rem;) */
 }
 
-/* checkbox vo formulari (vytvoreny cez XCheckbox) - vertikalne centrovanie (cez flexbox)
+/* checkbox vo formulari (vytvoreny cez Checkbox) - vertikalne centrovanie (cez flexbox)
 TOTO ZMAZAT
 staci nam align-items: center; na .field.grid, toto je "duplicita"
 .field.grid > .p-checkbox {
@@ -260,7 +260,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
     - min-content nastavil sirky stlpcov presne na sirku urcenu cez headerStyle na stlpci
     - auto este navyse trosku zvecsilo stlpce ak boli dlhe labely
     - problem - ak sme chceli scrolbar-y, tak nefungovalo zarovnanie stlpcov s header-ami
-    - riesenie - min-content sa teraz priamo zadava na komponente tabulky (XLazyDataTable.DataTable)
+    - riesenie - min-content sa teraz priamo zadava na komponente tabulky (LazyDataTable.DataTable)
  */
 /*
 .p-datatable table {
@@ -417,10 +417,10 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   font-size: var(--app-form-font-size); /* velkost labelov fieldov v dialogu */
 }
 
-/* root div pre XInputTextarea a XEditor, ak nastavime property labelOnTop=true */
+/* root div pre MultilineTextField a RichTextField, ak nastavime property labelOnTop=true */
 .x-inputtextarea-label-on-top, .x-editor-label-on-top {
   flex-direction: column;
-  padding-left: 0.5rem; /* ostatne fieldy v stlpci maju margin 0.5rem, tak zarovname aj tento XInputTextarea */
+  padding-left: 0.5rem; /* ostatne fieldy v stlpci maju margin 0.5rem, tak zarovname aj tento MultilineTextField */
 }
 
 .x-inputfilelist > .p-progressbar {
@@ -471,7 +471,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   display: flex;
   justify-content: center; /* pre projekt depaul som zmenil z space-evenly na center - nech su stlpce pokope */
   flex-wrap: wrap;
-  min-width: min-content; /* na mobile sme mali problem - ked jeho parent (XFormScrollable) vytvara (aj) horizontalny scrollbar,
+  min-width: min-content; /* na mobile sme mali problem - ked jeho parent (FormScrollable) vytvara (aj) horizontalny scrollbar,
                               tak tento element kopiruje sirku parenta (cize sirku mobilu) a potom zle zobrazuje scrollbar (neda sa nascrollovat obsah uplne vlavo),
                                toto nastavenie sposobi ze ak je child element sirsi, tak sirka sa vezme z sirokeho child elementu (a nie z uzkeho parent elementu)
                                a scrollbar funguje korektne */
@@ -600,7 +600,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
   /* width: 100%; */
 }
 
-/* labels only dame do rafika (este by sme mohli dat do XInputTextareaBase readOnly) */
+/* labels only dame do rafika (este by sme mohli dat do MultilineTextInput readOnly) */
 .x-fsb-labels-only {
   padding: 0.5rem;
   border: 1px solid #ced4da;
