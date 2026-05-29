@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # login to Docker Hub (hub.docker.com) in order to push the built image do Docker Hub
       # you need to create account and access token in Docker Hub (click on user profile (right up corner) -> Account settings -> Personal access tokens, setup Read/Write/Delete scope)
