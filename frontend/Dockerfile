@@ -6,7 +6,7 @@ RUN npm i -g pnpm@11.4.0
 FROM node-pnpm AS build-stage
 
 WORKDIR /frontend-app
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install
 COPY . .
 
