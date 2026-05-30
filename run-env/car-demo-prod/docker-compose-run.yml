@@ -13,7 +13,6 @@
 # docker compose -f docker-compose-run.yml up -d  -> runs application in docker on localhost (builds also images if they are not present)
 
 
-version: '3.8'
 name: car-demo
 
 services:

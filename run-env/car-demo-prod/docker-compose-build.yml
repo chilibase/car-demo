@@ -2,7 +2,6 @@
 # used by github actions (.github/workflows/car-demo-prod.yml)
 # uses config file .env
 
-version: '3.8'
 name: car-demo
 
 services:

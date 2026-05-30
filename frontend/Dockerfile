@@ -1,4 +1,4 @@
-FROM node:22-alpine AS node-pnpm
+FROM node:24-alpine AS node-pnpm
 
 RUN npm i -g pnpm@11.4.0
 

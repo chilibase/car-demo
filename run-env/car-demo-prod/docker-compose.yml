@@ -15,7 +15,6 @@
 
 # if application runs in docker on localhost, is available on url http://localhost (default port for http is 80 and on this port runs nginx (see nginx/conf/app.conf))
 
-version: '3.8'
 name: car-demo
 
 services:
