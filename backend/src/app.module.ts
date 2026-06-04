@@ -8,10 +8,10 @@ import {EntityClassOrSchema} from "@nestjs/typeorm/dist/interfaces/entity-class-
 import {APP_GUARD} from "@nestjs/core";
 import {JwtAuthGuard} from "@chilibase/backend/jwt-auth.guard";
 import {XAuth, XEnvVar} from "@chilibase/backend/XEnvVars";
-import {XUtils} from "@chilibase/backend/XUtils";
+import {CBUtils} from "@chilibase/backend/utils";
 import {XAdvancedConsoleLogger} from "@chilibase/backend/XAdvancedConsoleLogger";
 import {XOptimisticLockingSubscriber} from "@chilibase/backend/XOptimisticLockingSubscriber";
-import {BrowseMeta, ColumnMeta, XFile, User, XEnumEnum, XEnum, XParam} from "@chilibase/backend/administration";
+import {BrowseMeta, ColumnMeta, FileMeta, User, EnumType, EnumValue, Parameter} from "@chilibase/backend/administration";
 import {PostSubscriber} from "./PostSubscriber.js";
 import {Brand} from "./model/brand.entity.js";
 import {Country} from "./model/country.entity.js";
@@ -21,7 +21,7 @@ import {CarReservation} from "./model/car-reservation.entity.js";
 import {Client} from "./model/client.entity.js";
 import {ConnectionOptions, parse} from "pg-connection-string";
 
-const entities: EntityClassOrSchema[] = [BrowseMeta, ColumnMeta, XFile, User, XEnumEnum, XEnum, XParam,
+const entities: EntityClassOrSchema[] = [BrowseMeta, ColumnMeta, FileMeta, User, EnumType, EnumValue, Parameter,
   // >> add project specific entities here <<
   Brand, Country, Car, Ride, Client, CarReservation
 ];
@@ -29,10 +29,10 @@ const entities: EntityClassOrSchema[] = [BrowseMeta, ColumnMeta, XFile, User, XE
 // since this method uses environment variables, must be called after the initialization of module ConfigModule
 function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmModuleOptions {
 
-  const dbConfig: ConnectionOptions = parse(XUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL));
+  const dbConfig: ConnectionOptions = parse(CBUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL));
   const schema: string | undefined = dbConfig['schema'] as string;
   if (!schema) {
-    throw `schema is missing in value of env var X_DATABASE_URL: ${XUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL)}`;
+    throw `schema is missing in value of env var X_DATABASE_URL: ${CBUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL)}`;
   }
 
   const typeOrmModuleOptions: TypeOrmModuleOptions = {
@@ -48,9 +48,9 @@ function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmMod
     synchronize: false,
     // logging: true was replaced with custom logger - the param of type Buffer is logged smart
     //logging: true,
-    logger: new XAdvancedConsoleLogger(XUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
+    logger: new XAdvancedConsoleLogger(CBUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
   };
-  XUtils.setSchema(schema);
+  CBUtils.setSchema(schema);
   return typeOrmModuleOptions;
 }
 
@@ -74,7 +74,7 @@ export class AppModule {
       exports: [TypeOrmModule], // according to doc, is needed to access DB from all modules, but works also without this export
       module: AppModule
     };
-    if (XUtils.getEnvVarValue(XEnvVar.X_AUTH) !== XAuth.OFF) {
+    if (CBUtils.getEnvVarValue(XEnvVar.X_AUTH) !== XAuth.OFF) {
       //appModuleMetadata.imports.push(AuthModule); <- AuthModule is imported into XLibModule in lib
       // APP_GUARD adds JwtAuthGuard (JwtStrategy) to all endpoints (in all controllers)
       appModuleMetadata.providers.push(

@@ -3,7 +3,7 @@ import {
     EventSubscriber
 } from "typeorm";
 import {AfterQueryEvent} from "typeorm/subscriber/event/QueryEvent.js";
-import {XUtils} from "@chilibase/backend/XUtils";
+import {CBUtils} from "@chilibase/backend/utils";
 import {XEnvVar} from "@chilibase/backend/XEnvVars";
 
 @EventSubscriber()
@@ -14,7 +14,7 @@ export class PostSubscriber implements EntitySubscriberInterface {
      */
     afterQuery(event: AfterQueryEvent<any>) {
         //console.log(`AFTER QUERY: `, event.query);
-        if (XUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL)) {
+        if (CBUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL)) {
             // if log SQL is on then log also the time
             console.log(`executionTime: `, event.executionTime);
         }

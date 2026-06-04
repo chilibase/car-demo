@@ -4,7 +4,7 @@ import {BrandBrowse} from "./forms/BrandBrowse.tsx";
 import {CarBrowse} from "./forms/CarBrowse.tsx";
 import {ClientBrowse} from "./forms/ClientBrowse.tsx";
 import {CarReservationBrowse} from "./forms/CarReservationBrowse.tsx";
-import {ChangePasswordForm} from "@chilibase/frontend/administration";
+import {ChangePasswordForm, ParameterBrowse} from "@chilibase/frontend/administration";
 import {CBUtils} from "@chilibase/frontend/utils";
 import {CBEnvVar, ViteAuth} from "@chilibase/frontend/env-vars";
 import {UserCarDemoBrowse} from "./forms/UserCarDemoBrowse.tsx";
@@ -22,6 +22,7 @@ export const AppRouterProvider = () => {
                 {path: "/clients", Component: ClientBrowse},
                 {path: "/car-reservations", Component: CarReservationBrowse},
                 {path: "/users", Component: UserCarDemoBrowse},
+                {path: "/parameters", Component: ParameterBrowse},
                 ...(CBUtils.getEnvVarValue(CBEnvVar.VITE_AUTH) === ViteAuth.LOCAL ? [{path: "/change-password", Component: ChangePasswordForm}] : [])
             ]
         }

@@ -38,3 +38,7 @@ export class UserCarDemoForm extends FormBaseModif {
         );
     }
 }
+
+(UserCarDemoForm as any).assocList = (): string[] => {
+    return ["modifUser"];
+}
