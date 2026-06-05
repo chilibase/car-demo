@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {DataSource} from "typeorm";
 import {PersistenceService} from "@chilibase/backend/persistence";
-import {FileService} from "@chilibase/backend/services";
+import {FileService} from "@chilibase/backend/files";
 import {UtilsCommon} from "./common/UtilsCommon.js";
 
 @Injectable()
