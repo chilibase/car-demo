@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {DataSource} from "typeorm";
 import {PersistenceService} from "@chilibase/backend/persistence";
-import {XEntityMetadataService, FileService} from "@chilibase/backend/services";
+import {FileService} from "@chilibase/backend/services";
 import {UtilsCommon} from "./common/UtilsCommon.js";
 
 @Injectable()
@@ -10,7 +10,6 @@ export class AppService {
         private dataSource: DataSource,
         private readonly persistenceService: PersistenceService,
         private readonly fileService: FileService,
-        private readonly xEntityMetadataService: XEntityMetadataService
     ) {
     }
 
