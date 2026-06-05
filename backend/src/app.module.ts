@@ -6,8 +6,8 @@ import {TypeOrmModule, TypeOrmModuleOptions} from "@nestjs/typeorm";
 import {MulterModule} from "@nestjs/platform-express";
 import {EntityClassOrSchema} from "@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type.js";
 import {APP_GUARD} from "@nestjs/core";
-import {JwtAuthGuard} from "@chilibase/backend/jwt-auth.guard";
-import {XAuth, XEnvVar} from "@chilibase/backend/XEnvVars";
+import {JwtAuthGuard} from "@chilibase/backend/auth";
+import {Auth, EnvVar} from "@chilibase/backend/env-vars";
 import {CBUtils} from "@chilibase/backend/utils";
 import {AdvancedConsoleLogger} from "@chilibase/backend/persistence";
 import {OptimisticLockingSubscriber} from "@chilibase/backend/persistence";
@@ -30,10 +30,10 @@ const entities: EntityClassOrSchema[] = [BrowseMeta, ColumnMeta, FileMeta, User,
 // since this method uses environment variables, must be called after the initialization of module ConfigModule
 function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmModuleOptions {
 
-  const dbConfig: ConnectionOptions = parse(CBUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL));
+  const dbConfig: ConnectionOptions = parse(CBUtils.getEnvVarValue(EnvVar.X_DATABASE_URL));
   const schema: string | undefined = dbConfig['schema'] as string;
   if (!schema) {
-    throw `schema is missing in value of env var X_DATABASE_URL: ${CBUtils.getEnvVarValue(XEnvVar.X_DATABASE_URL)}`;
+    throw `schema is missing in value of env var X_DATABASE_URL: ${CBUtils.getEnvVarValue(EnvVar.X_DATABASE_URL)}`;
   }
 
   const typeOrmModuleOptions: TypeOrmModuleOptions = {
@@ -49,7 +49,7 @@ function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmMod
     synchronize: false,
     // logging: true was replaced with custom logger - the param of type Buffer is logged smart
     //logging: true,
-    logger: new AdvancedConsoleLogger(CBUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
+    logger: new AdvancedConsoleLogger(CBUtils.getEnvVarValueBoolean(EnvVar.X_LOG_SQL))
   };
   CBUtils.setSchema(schema);
   return typeOrmModuleOptions;
@@ -75,7 +75,7 @@ export class AppModule {
       exports: [TypeOrmModule], // according to doc, is needed to access DB from all modules, but works also without this export
       module: AppModule
     };
-    if (CBUtils.getEnvVarValue(XEnvVar.X_AUTH) !== XAuth.OFF) {
+    if (CBUtils.getEnvVarValue(EnvVar.X_AUTH) !== Auth.OFF) {
       //appModuleMetadata.imports.push(AuthModule); <- AuthModule is imported into ChilibaseModule in lib
       // APP_GUARD adds JwtAuthGuard (JwtStrategy) to all endpoints (in all controllers)
       appModuleMetadata.providers.push(

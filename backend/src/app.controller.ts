@@ -5,7 +5,7 @@ import {
     Post
 } from '@nestjs/common';
 import {AppService} from './app.service.js';
-import {Public} from "@chilibase/backend/public";
+import {Public} from "@chilibase/backend/auth";
 import {LazyDataTableService} from "@chilibase/backend/persistence";
 import {SaveRowParam} from "@chilibase/backend/persistence";
 import {PersistenceService} from "@chilibase/backend/persistence";
