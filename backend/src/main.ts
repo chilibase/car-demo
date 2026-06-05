@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
-import {XExceptionFilter} from "@chilibase/backend/x-exception.filter";
+import {ExceptionFilter} from "@chilibase/backend/utils";
 import {CBUtils} from "@chilibase/backend/utils";
 import {XEnvVar, XProtocol} from "@chilibase/backend/XEnvVars";
 import {readFileSync} from "fs";
@@ -41,7 +41,7 @@ async function bootstrap() {
     // more secure option:
     //app.enableCors({origin: "http://localhost:8081/"});
   }
-  app.useGlobalFilters(new XExceptionFilter());
+  app.useGlobalFilters(new ExceptionFilter());
 
   const port: string = CBUtils.getEnvVarValue(XEnvVar.X_PORT);
   await app.listen(port);
