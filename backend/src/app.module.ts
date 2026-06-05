@@ -1,7 +1,7 @@
 import {DynamicModule, Module} from '@nestjs/common';
 import {AppController} from './app.controller.js';
 import {AppService} from './app.service.js';
-import {XLibModule} from '@chilibase/backend/x-lib.module';
+import {ChilibaseModule} from '@chilibase/backend/main-module';
 import {TypeOrmModule, TypeOrmModuleOptions} from "@nestjs/typeorm";
 import {MulterModule} from "@nestjs/platform-express";
 import {EntityClassOrSchema} from "@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type.js";
@@ -9,8 +9,8 @@ import {APP_GUARD} from "@nestjs/core";
 import {JwtAuthGuard} from "@chilibase/backend/jwt-auth.guard";
 import {XAuth, XEnvVar} from "@chilibase/backend/XEnvVars";
 import {CBUtils} from "@chilibase/backend/utils";
-import {XAdvancedConsoleLogger} from "@chilibase/backend/XAdvancedConsoleLogger";
-import {XOptimisticLockingSubscriber} from "@chilibase/backend/XOptimisticLockingSubscriber";
+import {AdvancedConsoleLogger} from "@chilibase/backend/persistence";
+import {OptimisticLockingSubscriber} from "@chilibase/backend/persistence";
 import {BrowseMeta, ColumnMeta, FileMeta, User, EnumType, EnumValue, Parameter} from "@chilibase/backend/administration";
 import {PostSubscriber} from "./PostSubscriber.js";
 import {Brand} from "./model/brand.entity.js";
@@ -44,11 +44,11 @@ function createTypeOrmModuleOptions(entities: EntityClassOrSchema[]): TypeOrmMod
     database: dbConfig.database,
     schema: schema,
     entities: entities,
-    subscribers: [XOptimisticLockingSubscriber, PostSubscriber],
+    subscribers: [OptimisticLockingSubscriber, PostSubscriber],
     synchronize: false,
     // logging: true was replaced with custom logger - the param of type Buffer is logged smart
     //logging: true,
-    logger: new XAdvancedConsoleLogger(CBUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
+    logger: new AdvancedConsoleLogger(CBUtils.getEnvVarValueBoolean(XEnvVar.X_LOG_SQL))
   };
   CBUtils.setSchema(schema);
   return typeOrmModuleOptions;
@@ -62,9 +62,9 @@ export class AppModule {
     const appModuleMetadata: DynamicModule = {
       imports: [
         configModule,
-        TypeOrmModule.forRoot(createTypeOrmModuleOptions(entities)), // can be moved to XLibModule?
+        TypeOrmModule.forRoot(createTypeOrmModuleOptions(entities)), // can be moved to ChilibaseModule?
         TypeOrmModule.forFeature(entities), // is needed to enable inject TypeORM entity Repository
-        XLibModule.forRoot(),
+        ChilibaseModule.forRoot(),
         MulterModule.register(/*{dest: 'uploads/'}*/) // global settings for processing files, for now we set this in the controller's methods
       ],
       controllers: [AppController],
@@ -75,7 +75,7 @@ export class AppModule {
       module: AppModule
     };
     if (CBUtils.getEnvVarValue(XEnvVar.X_AUTH) !== XAuth.OFF) {
-      //appModuleMetadata.imports.push(AuthModule); <- AuthModule is imported into XLibModule in lib
+      //appModuleMetadata.imports.push(AuthModule); <- AuthModule is imported into ChilibaseModule in lib
       // APP_GUARD adds JwtAuthGuard (JwtStrategy) to all endpoints (in all controllers)
       appModuleMetadata.providers.push(
           {
