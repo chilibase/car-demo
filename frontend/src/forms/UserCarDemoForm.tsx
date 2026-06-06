@@ -6,7 +6,7 @@ import {CheckboxField} from "@chilibase/frontend/checkbox-field";
 import {DateField} from "@chilibase/frontend/date-field";
 import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
 
-// readonly version used for demo - use XUserBrowse/XUserForm from lib
+// readonly version used for demo - use UserBrowse/UserForm from lib
 export class UserCarDemoForm extends FormBaseModif {
 
     constructor(props: FormProps) {

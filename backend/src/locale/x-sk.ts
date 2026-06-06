@@ -1,4 +1,4 @@
-// for simplicity, instead of json file cb-sk.json
+// for simplicity, instead of json file x-sk.json
 import {LocaleOptions} from "@chilibase/backend/locale";
 
 export const localeSk: {"sk": LocaleOptions} =

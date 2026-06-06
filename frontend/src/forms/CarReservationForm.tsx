@@ -2,7 +2,7 @@ import {TextField} from "@chilibase/frontend/text-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {NumberField} from "@chilibase/frontend/number-field";
-import {CBUtils} from "@chilibase/frontend/utils";
+import {XUtils} from "@chilibase/frontend/utils";
 import {FormFooter, FormHeader, FormBaseModif} from "@chilibase/frontend/form";
 import {MultilineTextField} from "@chilibase/frontend/multiline-text-field";
 import {DateField} from "@chilibase/frontend/date-field";
@@ -79,5 +79,5 @@ export class CarReservationForm extends FormBaseModif {
 (CarReservationForm as any).loadObject = async (id: number): Promise<CarReservation> => {
     //console.log('pustame sleep 2500');
     //await new Promise(r => setTimeout(r, 2500));
-    return CBUtils.fetchById("CarReservation", ["client", "car.brandAssoc", "modifUser"], id);
+    return XUtils.fetchById("CarReservation", ["client", "car.brandAssoc", "modifUser"], id);
 }

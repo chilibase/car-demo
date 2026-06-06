@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import {ExceptionFilter} from "@chilibase/backend/utils";
-import {CBUtils} from "@chilibase/backend/utils";
+import {XUtils} from "@chilibase/backend/utils";
 import {EnvVar, Protocol} from "@chilibase/backend/env-vars";
 import {readFileSync} from "fs";
 import {HttpsOptions} from "@nestjs/common/interfaces/external/https-options.interface.js";
@@ -15,11 +15,11 @@ async function bootstrap() {
   // isGlobal:true enables environment variables in every module
   const configModule: DynamicModule = await ConfigModule.forRoot({isGlobal: true});
 
-  const protocol: string = CBUtils.getEnvVarValue(EnvVar.X_PROTOCOL);
+  const protocol: string = XUtils.getEnvVarValue(EnvVar.X_PROTOCOL);
   let options: NestApplicationOptions | undefined = undefined;
   // for backend requests we use the same ssl certificate like for frontend request (first GET request)
   if (protocol === Protocol.HTTPS) {
-    const domain: string = CBUtils.getEnvVarValue(EnvVar.X_DOMAIN);
+    const domain: string = XUtils.getEnvVarValue(EnvVar.X_DOMAIN);
     const httpsOptions: HttpsOptions = {
       key: readFileSync(`/etc/node/ssl/live/${domain}/privkey.pem`),
       cert: readFileSync(`/etc/node/ssl/live/${domain}/fullchain.pem`)
@@ -46,7 +46,7 @@ async function bootstrap() {
 
   setLocale();
 
-  const port: string = CBUtils.getEnvVarValue(EnvVar.X_PORT);
+  const port: string = XUtils.getEnvVarValue(EnvVar.X_PORT);
   await app.listen(port);
 }
 bootstrap();

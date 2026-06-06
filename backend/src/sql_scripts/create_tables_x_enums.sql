@@ -37,9 +37,9 @@ CREATE TABLE x_parameter (
     version INT NOT NULL
 );
 
--- FK constrainty v PostgreSQL nevytvaraju indexy, treba ich vytvorit explicitne
--- (unique constrainty vytvaraju indexy automaticky)
--- PostgreSQL vytvori defaultne nazvy constraintov a indexov (ak nespecifikujeme nazvy explicitne)
+-- FK constraints in PostgreSQL do not create indexes, the indexes have to be created explicitly
+-- (unique constraints create indexes automatically)
+-- PostgreSQL creates default constraint/index names (if the names are not specified explicitly)
 
 -- x_enum_type
 ALTER TABLE x_enum_type ADD UNIQUE (code);

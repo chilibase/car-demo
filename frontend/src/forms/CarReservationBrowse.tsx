@@ -9,14 +9,14 @@ import {CarReservationForm} from "./CarReservationForm";
 import {ClientForm} from "./ClientForm";
 import type {CarReservation} from "../model/car-reservation.entity.ts";
 import {UtilsCommon} from "../common/UtilsCommon.ts";
-import {CBUtilsCommon} from "@chilibase/frontend/common";
+import {XUtilsCommon} from "@chilibase/frontend/common";
 
 export const CarReservationBrowse = (props: SearchBrowseProps) => {
 
     const onAlert = (selectedRow: CarReservation) => {
         const id = selectedRow.id;
         console.log(id);
-        alert(`Selected row id = ${id}, day of week: ${CBUtilsCommon.getDayName(new Date())}`);
+        alert(`Selected row id = ${id}, day of week: ${XUtilsCommon.getDayName(new Date())}`);
 
         UtilsCommon.test();
     }
