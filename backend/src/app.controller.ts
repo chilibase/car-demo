@@ -26,7 +26,7 @@ export class AppController {
     }
 
     //@Public()
-    @Post('lazyDataTableFindRowsTest')
+    @Post('lazy-data-table-find-rows-test')
     async lazyDataTableFindRowsTest(@Body() body: FindParam): Promise<FindResult> {
         const findResult: FindResult = await this.lazyDataTableService.findRows(body);
         // test - types of attributes, those TypeORM uses by reading object from DB
@@ -41,7 +41,7 @@ export class AppController {
     }
 
     //@Public()
-    @Post('saveRowTest')
+    @Post('save-row-test')
     saveRow(@Body() body: SaveRowParam): Promise<any> {
         return this.persistenceService.saveRow(body);
     }
