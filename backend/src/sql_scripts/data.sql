@@ -1,4 +1,5 @@
 INSERT INTO x_user (username, name, enabled, admin, "version") VALUES ('michalrakus@gmail.com', 'Michal Rakus', true, true, 0);
+INSERT INTO x_user (username, name, enabled, admin, "version") VALUES ('x_test_user@yahoo.com', 'James Logan', true, true, 0);
 
 INSERT INTO brand (id, brand) VALUES (16, 'Fiat*');
 INSERT INTO brand (id, brand) VALUES (17, 'VW*');

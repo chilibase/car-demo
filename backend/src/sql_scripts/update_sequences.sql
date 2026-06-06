@@ -1,6 +1,7 @@
-SELECT setval('car_demo.x_enum_enum_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_enum_enum), 1), false);
-SELECT setval('car_demo.x_enum_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_enum), 1), false);
-SELECT setval('car_demo.x_param_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_param), 1), false);
+SELECT setval('car_demo.x_enum_type_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_enum_type), 1), false);
+SELECT setval('car_demo.x_enum_value_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_enum_value), 1), false);
+SELECT setval('car_demo.x_parameter_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_parameter), 1), false);
+SELECT setval('car_demo.x_file_meta_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.x_file_meta), 1), false);
 
 -- xs tables
 SELECT setval('car_demo.xs_interval_set_id_seq', COALESCE((SELECT MAX(id)+1 FROM car_demo.xs_interval_set), 1), false);
