@@ -44,6 +44,7 @@ export const CarReservationBrowse = (props: SearchBrowseProps) => {
                 <Column field="car.brandAssoc.brand" header="Car brand" width="10rem"/>
                 <Column field="car.color" header="Car color" width="10rem"/>
                 <Column field="price" header="Price"/>
+                <Column field="comment" header="Comment" width="15rem" textFormat="multiline"/>
             </LazyDataTable>
             <SourceCodeLinkForm sourceCodeFile="CarReservationBrowse.tsx"/>
             <SourceCodeLinkEntity sourceCodeFile="car-reservation.entity.ts"/>
