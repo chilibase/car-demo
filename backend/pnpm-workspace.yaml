@@ -1,6 +1,8 @@
 allowBuilds:
   '@chilibase/backend': true
+  '@chilibase/backend@file:../../chilibase/backend/chilibase-backend-0.6.3.tgz': true
   '@nestjs/core': true
   bcrypt: true
-minimumReleaseAgeExclude:
-  - '@chilibase/backend@0.6.2'
+overrides:
+  encoding-sniffer: 1.0.2
+  unzipper: 0.12.5
