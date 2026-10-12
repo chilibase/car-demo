@@ -18,7 +18,7 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       primereact:
-        specifier: 10.9.9
+        specifier: ^10.9.9
         version: 10.9.9(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       quill:
         specifier: ^2.0.3
@@ -199,13 +199,13 @@ packages:
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
   '@chilibase/frontend@file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz':
-    resolution: {integrity: sha512-FPwync/Ompv0ae9o924BbfmOKPqTwvq3gMsw7L3RItf/yGAguwiWF08FWynCcWhP2Ly2hqbZGeaPC78ysrJjfg==, tarball: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz}
+    resolution: {integrity: sha512-iV6BaHaCC97sH75XfAU60yqkOgLQ3Bb2VQcPPyRoL/wRj7BW6VXiNgw2eCXqMo78ojctpgtaQm/QjcXmGkHXVw==, tarball: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz}
     version: 0.6.3
     engines: {node: '>=22', pnpm: '>=11'}
     peerDependencies:
       primeflex: ^3.3.1
       primeicons: ^7.0.0
-      primereact: 10.9.9
+      primereact: ^10.9.9
       quill: ^2.0.3
       react: ^18.3.1
       react-dom: ^18.3.1

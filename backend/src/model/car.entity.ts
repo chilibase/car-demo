@@ -1,5 +1,6 @@
 import {Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, OneToMany, VersionColumn} from 'typeorm';
 import {User} from "@chilibase/backend/administration";
+import {NumberWidth} from "@chilibase/backend/entity-metadata";
 import {Brand} from "./brand.entity.js";
 import {Ride} from "./ride.entity.js";
 
@@ -15,7 +16,8 @@ export class Car {
     @Column({name: 'brand_string', nullable: true})
     brandString: string | null;
 
-    @Column({width: 4, nullable: true})
+    @NumberWidth(4)
+    @Column({nullable: true})
     year: number | null;
 
     @Column({nullable: true})
