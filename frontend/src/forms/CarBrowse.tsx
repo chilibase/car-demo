@@ -12,7 +12,7 @@ export const CarBrowse = (props: SearchBrowseProps) => {
     return (
         <div>
             <LazyDataTable entity="Car" label="Cars" rows={30} formFooterHeight={'4.43rem'} sortField="id"
-                           EditForm={CarForm} removeRow={true}
+                           EditForm={CarForm} onRemoveRow={true}
                            searchBrowseParams={props.searchBrowseParams}>
                 <Column field="id" header="ID" width="5rem"/>
                 <Column field="vin" header="Vin" width="7rem"/>

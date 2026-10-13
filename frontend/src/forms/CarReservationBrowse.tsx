@@ -24,7 +24,7 @@ export const CarReservationBrowse = (props: SearchBrowseProps) => {
     return (
         <div>
             <LazyDataTable entity="CarReservation" label="Car reservations" rows={30} formFooterHeight={'4.43rem'} sortField="id desc"
-                           editFormElement={<CarReservationForm/>} removeRow={true}
+                           editFormElement={<CarReservationForm/>} onRemoveRow={true}
                            appButtonsForRow={[{
                                key: "alert",
                                label: "Alert",

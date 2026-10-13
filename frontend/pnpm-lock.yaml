@@ -183,7 +183,7 @@ packages:
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
   '@chilibase/frontend@file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz':
-    resolution: {integrity: sha512-CEGG8+AN1SD2As9pkAEykMN31O5IjDTJxw8Gak2J9/DXVQbjarQCSyHPJ8KYg1HYrO5yn52Hodg6MlSJtt6M2g==, tarball: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz}
+    resolution: {integrity: sha512-0LMKe4D7SwvMu0RpBJrCKEEayrFQunOtUed9x14yWxWMYl2JRA/AHFkpuLtD/JRCwJpcEwSUZNCXJfQMrt5ejg==, tarball: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz}
     version: 0.6.3
     engines: {node: '>=22.12', pnpm: '>=11'}
     peerDependencies:

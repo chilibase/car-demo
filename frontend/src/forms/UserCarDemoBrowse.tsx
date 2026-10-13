@@ -6,7 +6,7 @@ export const UserCarDemoBrowse = (props: SearchBrowseProps) => {
 
     return (
         <LazyDataTable entity="User" label="Users" rows={30}
-                       EditForm={UserCarDemoForm} onAddRow={false} removeRow={false}
+                       EditForm={UserCarDemoForm} onAddRow={false} onRemoveRow={false}
                        searchBrowseParams={props.searchBrowseParams}>
             <Column field="id" header="ID"/>
             <Column field="username" header="Username" width="17rem"/>
