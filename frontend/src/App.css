@@ -132,7 +132,7 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 
 /* no line break in table headers (every row has only one line) and in table cells
    kedze mame resizable columns (pridavaju overflow: hidden), resizovanim si vie uzer pozriet aj useknuty obsah bunky - moze to vsak byt problem na mobile */
-.p-datatable.x-lazy-datatable tr > th, .p-datatable.x-form-datatable tr > th,
+.p-datatable.x-lazy-datatable tr > th, .p-datatable.x-detail-datatable tr > th,
 .p-datatable.x-lazy-datatable tr > td {
   white-space: nowrap;
   /*overflow: hidden;*/
@@ -198,13 +198,13 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 
 
 /* inputs in editable datatable should be as wide as the column, second selector is for inputnumber (inputnumber has span wrapper) */
-.x-form-datatable tr > td .x-input-to-resize, .x-form-datatable tr > td .x-input-to-resize > .p-inputnumber-input {
+.x-detail-datatable tr > td .x-input-to-resize, .x-detail-datatable tr > td .x-input-to-resize > .p-inputnumber-input {
   width: 100%;
 }
 
 /* editable datatable - padding shrinked from 7px to 3px (to save space) */
-.p-datatable.p-datatable-sm.x-form-datatable .p-datatable-thead > tr > th.p-filter-column:has(div.p-column-filter),
-.p-datatable.p-datatable-sm.x-form-datatable .p-datatable-tbody > tr > td {
+.p-datatable.p-datatable-sm.x-detail-datatable .p-datatable-thead > tr > th.p-filter-column:has(div.p-column-filter),
+.p-datatable.p-datatable-sm.x-detail-datatable .p-datatable-tbody > tr > td {
   padding: 0.21rem;
 }
 
@@ -214,13 +214,13 @@ staci nam align-items: center; na .field.grid, toto je "duplicita"
 }
 
 /* lazy datatable - body - not shrinked
-   (selector for .x-form-datatable with padding: 0.21rem targets lazy table opened from TableSearchField, that's why we need this selector ) */
+   (selector for .x-detail-datatable with padding: 0.21rem targets lazy table opened from TableSearchField, that's why we need this selector ) */
 .p-datatable.p-datatable-sm.x-lazy-datatable .p-datatable-tbody > tr > td {
   padding: 0.5rem;
 }
 
 /* editable datatable + lazy datatable - center checkbox in filter row */
-.p-datatable.p-datatable-sm.x-form-datatable .p-datatable-thead > tr > th.p-filter-column > div.p-column-filter > div.p-column-filter-element:has(div.p-tristatecheckbox),
+.p-datatable.p-datatable-sm.x-detail-datatable .p-datatable-thead > tr > th.p-filter-column > div.p-column-filter > div.p-column-filter-element:has(div.p-tristatecheckbox),
 .p-datatable.p-datatable-sm.x-lazy-datatable .p-datatable-thead > tr > th.p-filter-column > div.p-column-filter > div.p-column-filter-element:has(div.p-tristatecheckbox) {
   text-align: center;
 }

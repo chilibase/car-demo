@@ -3,10 +3,10 @@ import type {FormProps} from "@chilibase/frontend/form";
 import {SelectField} from "@chilibase/frontend/select-field";
 import {BrandForm} from "./BrandForm";
 import {
-    FormDataTable,
+    DetailDataTable,
     Column,
     SelectColumn
-} from "@chilibase/frontend/form-data-table";
+} from "@chilibase/frontend/detail-data-table";
 import {NumberField} from "@chilibase/frontend/number-field";
 import {DateField} from "@chilibase/frontend/date-field";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
@@ -19,11 +19,14 @@ import {MultilineTextField} from "@chilibase/frontend/multiline-text-field";
 import type {EntityRow} from "@chilibase/frontend/common";
 import type {Car} from "../model/car.entity.ts";
 import {FormCol, FormRow} from "@chilibase/frontend/form-layout";
+import {XUtilsCommon} from "@chilibase/frontend/common";
 
 export class CarForm extends FormBaseModif {
 
     constructor(props: FormProps) {
         super(props, "Car");
+
+        this.onClickAddRowRide = this.onClickAddRowRide.bind(this);
     }
 
     // overrides method in FormBase
@@ -34,6 +37,14 @@ export class CarForm extends FormBaseModif {
         }
         return errors;
     }
+
+    onClickAddRowRide() {
+        this.onTableAddRow("rideList", {
+            rideDate: XUtilsCommon.today(),
+            rideBoolean: false
+        });
+    }
+
 
     render() {
         return (
@@ -69,7 +80,7 @@ export class CarForm extends FormBaseModif {
                     </FormCol>
                 </FormRow>
                 <div className="x-viewport-width">
-                    <FormDataTable form={this} assocField="rideList" label="Ride list">
+                    <DetailDataTable form={this} assocField="rideList" label="Ride list" onClickAddRow={this.onClickAddRowRide}>
                         <Column field="id" header="ID" readOnly={true} width="5rem"/>
                         <Column field="cityFrom" header="From" width={'10rem'}/>
                         <Column field="cityTo" header="To" width={'10rem'}/>
@@ -80,7 +91,7 @@ export class CarForm extends FormBaseModif {
                         <Column field="rideBoolean" header="Boolean"/>
                         <Column field="country.id" header="ID country"/>
                         <SelectColumn assocField="country" displayField="code" header="Country Drop"/>
-                    </FormDataTable>
+                    </DetailDataTable>
                 </div>
                 <FormFooter form={this}/>
                 <SourceCodeLinkForm sourceCodeFile="CarForm.tsx"/>
