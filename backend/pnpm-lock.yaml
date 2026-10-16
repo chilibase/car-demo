@@ -13,8 +13,8 @@ importers:
   .:
     dependencies:
       '@chilibase/backend':
-        specifier: file:../../chilibase/backend/chilibase-backend-0.6.3.tgz
-        version: file:../../chilibase/backend/chilibase-backend-0.6.3.tgz(6987219730778d0bb83ed576d763f5f8)
+        specifier: ^0.7.0
+        version: 0.7.0(6987219730778d0bb83ed576d763f5f8)
       '@nestjs/common':
         specifier: ^12.1.2
         version: 12.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)
@@ -343,9 +343,8 @@ packages:
   '@cacheable/utils@2.5.0':
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
-  '@chilibase/backend@file:../../chilibase/backend/chilibase-backend-0.6.3.tgz':
-    resolution: {integrity: sha512-yGvASVzHF2YQBkr+JmCjKIJo9jkYKgCu+zPZZk/DTdXLFS1N2DfH/AxEtDqKnkanqTE3ouARazh1gUIFo6qlXA==, tarball: file:../../chilibase/backend/chilibase-backend-0.6.3.tgz}
-    version: 0.6.3
+  '@chilibase/backend@0.7.0':
+    resolution: {integrity: sha512-yihfqJ04LqgI5wkiP4l1NXc7CiX8p7eHOiP1Yj27OekscuesnLEB90cEistl/pbWEXlqzJO7kjjilzqNX5OWpA==}
     engines: {node: '>=22.12', pnpm: '>=11'}
     peerDependencies:
       '@nestjs/common': ^12.1.2
@@ -3955,7 +3954,7 @@ snapshots:
       hashery: 1.5.1
       keyv: 5.6.0
 
-  '@chilibase/backend@file:../../chilibase/backend/chilibase-backend-0.6.3.tgz(6987219730778d0bb83ed576d763f5f8)':
+  '@chilibase/backend@0.7.0(6987219730778d0bb83ed576d763f5f8)':
     dependencies:
       '@nestjs/common': 12.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)
       '@nestjs/config': 12.0.1(@nestjs/common@12.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(rxjs@7.8.2)

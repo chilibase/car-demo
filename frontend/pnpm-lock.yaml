@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@chilibase/frontend':
-        specifier: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz
-        version: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.9.9(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(quill@2.0.3)(react-dom@19.3.0(react@19.3.0))(react-router@8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-transition-group@4.4.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        specifier: ^0.7.0
+        version: 0.7.0(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.9.9(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(quill@2.0.3)(react-dom@19.3.0(react@19.3.0))(react-router@8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-transition-group@4.4.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       primeflex:
         specifier: ^3.3.1
         version: 3.3.1
@@ -182,9 +182,8 @@ packages:
   '@cacheable/utils@2.5.0':
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
-  '@chilibase/frontend@file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz':
-    resolution: {integrity: sha512-/0fGZtLw1kat8Fl6cLjTpCKpjH4nMhDLGG0zTAq2Tb68u/3nyKssSBXnxxwaijkRb/CG9hA+1Vf0dAe1gYSlXA==, tarball: file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz}
-    version: 0.6.3
+  '@chilibase/frontend@0.7.0':
+    resolution: {integrity: sha512-LHJwKICCG2EzJSckFNQvdeq3OzR8bYRk2jxhnJS06Nnny6sE4VV0hsRDhaH3rxYXyUZil+9mDE9S0TCD3IytzA==}
     engines: {node: '>=22.12', pnpm: '>=11'}
     peerDependencies:
       primeflex: ^3.3.1
@@ -1432,7 +1431,7 @@ snapshots:
       hashery: 1.5.1
       keyv: 5.6.0
 
-  '@chilibase/frontend@file:../../chilibase/frontend/chilibase-frontend-0.6.3.tgz(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.9.9(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(quill@2.0.3)(react-dom@19.3.0(react@19.3.0))(react-router@8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-transition-group@4.4.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)':
+  '@chilibase/frontend@0.7.0(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.9.9(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(quill@2.0.3)(react-dom@19.3.0(react@19.3.0))(react-router@8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-transition-group@4.4.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@auth0/auth0-react': 2.28.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@azure/msal-browser': 5.25.0
