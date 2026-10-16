@@ -39,10 +39,10 @@ RUN pnpm run build
 FROM nginx:1.23.4-alpine
 
 COPY --from=build-stage /frontend-app/dist /usr/share/nginx/html
-# ak mame aplikaciu, netreba nam pridavat test-page.html takto separatne
+# if we have the application, we don't need to add test-page.html separately like this
 #COPY public/test-page.html /usr/share/nginx/html/
 
-# port na ktorom bezi nginx
+# port on which nginx runs
 EXPOSE ${NGINX_DOCKER_PORT} ${NGINX_DOCKER_PORT_HTTPS}
 
 CMD nginx -g 'daemon off;'

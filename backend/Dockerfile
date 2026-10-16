@@ -21,12 +21,12 @@ FROM node-pnpm AS deploy
 WORKDIR /backend-app
 COPY --from=build /backend-app/dist/ ./dist/
 COPY --from=build /backend-app/node_modules ./node_modules
-# adresarova struktura pre uploading suborov (skor specificke pre danu app-ku)
+# directory structure for uploading files (rather specific to the given app)
 RUN mkdir -p /backend-app/app-files/uploaded
 RUN mkdir -p /backend-app/app-files/x-files
 
-# na backend sa pripajame z frontend containera, netreba nam tento EXPOSE
-# 3.6.2024 z proxy sa pripajame na backend cez tento port
+# we connect to the backend from the frontend container, we don't need this EXPOSE
+# 3.6.2024 from the proxy we connect to the backend through this port
 EXPOSE ${NODE_DOCKER_PORT}
 
 CMD ["node", "dist/main.js"]

@@ -8,12 +8,12 @@ CREATE TABLE xs_group_by_field (
     label VARCHAR NOT NULL,
     width INT, -- width of the cell, where the label is displayed
     field_type_id INT NOT NULL, -- x_enum "xGroupByType"
-    entity VARCHAR, -- entita enum-u napr. Sluzba
+    entity VARCHAR, -- entity of the enum, e.g. Sluzba
     display_field VARCHAR,
-    x_enum_enum_id INT, -- pouzivany (a povinny) ak fieldType = xEnum
-    xs_interval_set_id INT, -- pouzivany (a povinny) ak fieldType = age, intervalSet
-    filter VARCHAR, -- pouzivany (zatial) ak fieldType = xEnum/entityEnum
-    sort_field VARCHAR, -- pouzivany (zatial) ak fieldType = xEnum/entityEnum
+    x_enum_enum_id INT, -- used (and required) if fieldType = xEnum
+    xs_interval_set_id INT, -- used (and required) if fieldType = age, intervalSet
+    filter VARCHAR, -- used (for now) if fieldType = xEnum/entityEnum
+    sort_field VARCHAR, -- used (for now) if fieldType = xEnum/entityEnum
 
     modif_date TIMESTAMP,
     modif_x_user_id INT,
@@ -39,9 +39,9 @@ CREATE TABLE xs_stat_field (
                                                             -- because sometimes it is not possible to use <date_field> for the calculation of the age
     filter VARCHAR,
 
-    x_field_set_meta_id INT, -- pouzivany (a povinny) ak fieldType = fieldSetRowCount/fieldSetFieldCount (mozno aj fieldSetAggregateField)
-    x_field_set_fields JSONB, -- zoznam fieldov (aj s hodnotami napr. true, tak ako ich vytvara XFieldSet), tento zoznam sa pouziva pri fieldSetRowCount/fieldSetFieldCount
-                            -- (pre fieldSetAggregateField by mal byt presne 1 field typu decimal/int)
+    x_field_set_meta_id INT, -- used (and required) if fieldType = fieldSetRowCount/fieldSetFieldCount (maybe also fieldSetAggregateField)
+    x_field_set_fields JSONB, -- list of fields (also with values, e.g. true, the way XFieldSet creates them), this list is used for fieldSetRowCount/fieldSetFieldCount
+                            -- (for fieldSetAggregateField there should be exactly 1 field of type decimal/int)
     modif_date TIMESTAMP,
     modif_x_user_id INT,
     version INT NOT NULL
@@ -86,7 +86,7 @@ CREATE TABLE xs_table_group_by_field_for_columns (
     filter VARCHAR -- for HAVING clause
 );
 
--- TODO - nechce sa mi riesit 2 tabulky vo formulari nad jednou DB tabulkou, tak zatial takto zduplikujeme predchadzajucu tabulku
+-- TODO - I do not want to deal with 2 tables in the form over one DB table, so for now we duplicate the previous table this way
 CREATE TABLE xs_table_group_by_field_for_rows (
     id SERIAL PRIMARY KEY,
     xs_table_id INT NOT NULL,

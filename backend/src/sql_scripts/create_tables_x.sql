@@ -17,7 +17,7 @@ CREATE TABLE x_user (
     version INT NOT NULL
 );
 
--- postgresql vytvori defaultne nazvy constraintov a indexov (ak nespecifikujeme nazvy explicitne)
+-- postgresql creates default constraint and index names (if we do not specify the names explicitly)
 ALTER TABLE x_user ADD UNIQUE (username);
 ALTER TABLE x_user ADD FOREIGN KEY (modif_x_user_id) REFERENCES x_user (id);
 CREATE INDEX ON x_user (modif_x_user_id);
