@@ -1,6 +1,7 @@
 FROM node:24-alpine AS node-pnpm
 
-RUN npm i -g pnpm@11.4.0
+# recommendation - use the same major version like on localhost
+RUN npm i -g pnpm@11
 
 # Stage 1
 FROM node-pnpm AS build-stage
